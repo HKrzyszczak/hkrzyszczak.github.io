@@ -1,0 +1,41 @@
+body {
+    background-color: lightblue;
+    font-family: "Helvetica";
+}
+
+header img {
+    float: left;
+    width: 5%;
+}
+
+header div {
+    padding: 0;
+    display: inline;
+    float: left;
+    width: 90%;
+    margin-left: 20px;
+}
+
+main {
+    text-align: center;
+    margin-top: 20px;
+    clear: left;
+    width: 1000px;
+    float: left;
+}
+
+aside {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+aside nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    text-align: center;
+    clear: both;
+}
