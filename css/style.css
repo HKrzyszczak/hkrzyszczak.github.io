@@ -1,9 +1,12 @@
-#container {
-    margin: auto;
-    width: 1000px;
+body{
     color: white;
     background-color: #4bbaff;
     font-family: Helvetica, sans-serif;
+}
+
+#container {
+    margin: auto;
+    width: 1000px;
 }
 
 header {
