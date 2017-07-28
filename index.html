@@ -42,6 +42,17 @@
                 <li><a href="https://github.com/HKrzyszczak/hkrzyszczak.github.io">My GitHub repository</a></li>
                 <li><a href="https://github.com/infoshareacademy/jfdzl1-red-coders/">Our team repository</a></li>
             </ul>
+			<form method="POST" action="http://api.jfdzl1.is-academy.pl/emailer.php" class="contact-form">
+			    <fieldset class="contact-form__container">
+				<legend class="contact-form__title">Send some info to me</legend>
+				    <input type="hidden" name="reply-to" value="h.krzyszczak@electriclight.pl">
+				    Your name: <input type="text" name="name" id="name" class="contact-form__name">
+			        Your e-mail: <input type="text" name="email" id="email" class="contact-form__email">
+				    Message:
+			        <textarea name="message" id="message" class="contact-form__message"></textarea>
+			       <input type="submit" value="Send" class="send-button">
+				</fieldset>
+			</form>  
 
         </nav>
 
