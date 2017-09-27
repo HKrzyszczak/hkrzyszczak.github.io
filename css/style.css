@@ -24,7 +24,7 @@ body{
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 300px) {
     .col-xxs-1 {width: 8.33%;}
     .col-xxs-2 {width: 16.66%;}
     .col-xxs-3 {width: 25%;}
@@ -181,4 +181,23 @@ img {
     border-top:  solid 2px #000000;
     clear: both;
     margin: 0;
+}
+
+.octo, .octo div {
+    margin: 0 auto;
+    transform-origin: 50% 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+.octo, .octo div {
+    width: 160px;
+    height: 160px;
+}
+.octo {
+    transform: rotate(45deg);
+
+}
+.octo1 {
+    transform: rotate(-45deg);
 }
