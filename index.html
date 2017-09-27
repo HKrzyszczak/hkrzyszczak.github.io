@@ -1,77 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Henryk Krzyszczak - my website</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <meta charset="UTF-8">
+  <title>Henryk Krzyszczak - my website</title>
+  <link rel="stylesheet"
+        type="text/css"
+        href="css/style.css"/>
 </head>
 <body>
 <div class="main-container">
-    <header class="header">
 
-        <img src="images/HK_TB.jpg" alt="my profile photo" class="header__avatar"/>
+  <header class="header row">
+    <div class="col-xxs-12 col-xs-3 col-3" _>
+      <img src="images/HK_TB.jpg"
+           alt="my profile photo"/>
+    </div>
 
 
-        <div class="header__descryption-block">
-            <h1 class="header__name">
-                Henryk Krzyszczak
-            </h1>
-            <h2 class="header__descryption">I
-                Junior Front-end developer
-            </h2>
-        </div>
-    </header>
-    <main class="block">
-        <h3>Experience</h3>
-        <h4 class="block__title">
-            Upon completion of the course infoShare Academy I'll get the following skills:
-        </h4>
-        <ul class="block__list">
-            <li class="block__list--item"><p>HTML </p></li>
-            <li class="block__list--item"><p>CSS</p></li>
-            <li class="block__list--item"><p>JavaScript</p></li>
-        </ul>
+    <div class="col-xxs-12 col-xs-9 col-9">
+      <h1 class="header__name">
+        Henryk Krzyszczak
+      </h1>
+      <h2 class="header__descryption">
+        Junior Front-end developer
+      </h2>
+    </div>
+  </header>
+  <div class="row">
+    <main class="col-xxs-12 col-xs-6 col-lg-9 block">
+      <h3>Experience</h3>
+      <h4 class="block__title">
+        Upon completion of the course infoShare Academy I'll get the following skills:
+      </h4>
+      <ul class="block__list">
+        <li class="block__list--item"><p>HTML </p></li>
+        <li class="block__list--item"><p>CSS</p></li>
+        <li class="block__list--item"><p>JavaScript</p></li>
+      </ul>
 
     </main>
-    <aside class="asside">
-        <nav>
-            <h3 class="asside__title">
-                Projects
-            </h3>
-            <ul class="asside__list">
-                <li><a href="https://github.com/HKrzyszczak/hkrzyszczak.github.io">My GitHub repository</a></li>
-                <li><a href="https://github.com/infoshareacademy/jfdzl1-red-coders/">Our team repository</a></li>
-            </ul>
-			<form method="POST" action="http://api.jfdzl1.is-academy.pl/emailer.php" class="contact-form">
-			    <fieldset class="contact-form__container">
-				<legend class="contact-form__title">Send some message to me</legend>
-				    <input type="hidden" name="reply-to" value="h.krzyszczak@electriclight.pl">
-					<p class="contact-form__inner-space">
-					    <label class="contact-form__labels" for="name">Your name: </label>
-					</p>
-					<p class="contact-form__inner-space">
-				        <input type="text" name="name" id="name" class="contact-form__name contact-form--active">
-					</p>
-					<p class="contact-form__inner-space">
-					    <label class="contact-form__labels" for="email">Your e-mail: </label>
-					</p>
-					<p class="contact-form__inner-space">
-			            <input type="text" name="email" id="email" class="contact-form__email  contact-form--active">
-					</p>
-					<p class="contact-form__inner-space">
-				        <label class="contact-form__labels" for="message">Message: </label>
-			            <textarea name="message" id="message" class="contact-form__message  contact-form--active"></textarea>
-					</p>
-			       <input type="submit" value="Send" class="send-button">
-				</fieldset>
-			</form>  
-
-        </nav>
-
+    <aside class="col-xxs-12 col-xs-6 col-lg-3 asside">
+      <nav>
+        <h3 class="asside__title">
+          Projects
+        </h3>
+        <ul class="asside__list">
+          <li><a href="https://github.com/HKrzyszczak/hkrzyszczak.github.io">My GitHub repository</a></li>
+          <li><a href="https://github.com/infoshareacademy/jfdzl1-red-coders/">Our team repository</a></li>
+        </ul>
+        <form method="POST"
+              action="http://api.jfdzl1.is-academy.pl/emailer.php"
+              class="contact-form">
+          <fieldset class="contact-form__container">
+            <legend class="contact-form__title">Send some message to me</legend>
+            <input type="hidden" name="reply-to"
+                   value="h.krzyszczak@electriclight.pl">
+            <p class="contact-form__inner-space">
+              <label class="contact-form__labels"
+                     for="name">Your name: </label>
+            </p>
+            <p class="contact-form__inner-space">
+              <input type="text"
+                     name="name"
+                     id="name"
+                     class="contact-form__name contact-form--active">
+            </p>
+            <p class="contact-form__inner-space">
+              <label class="contact-form__labels"
+                     for="email">Your e-mail: </label>
+            </p>
+            <p class="contact-form__inner-space">
+              <input type="text"
+                     name="email"
+                     id="email"
+                     class="contact-form__email  contact-form--active">
+            </p>
+            <p class="contact-form__inner-space">
+              <label class="contact-form__labels"
+                     for="message">Message: </label>
+              <textarea name="message"
+                        id="message"
+                        class="contact-form__message  contact-form--active"></textarea>
+            </p>
+            <input type="submit"
+                   value="Send"
+                   class="send-button">
+          </fieldset>
+        </form>
+      </nav>
     </aside>
-    <footer class="footer">
-        <p>&copy; Henryk Krzyszczak</p>
+  </div>
+  <div class="row">
+    <footer class="footer col-12">
+      <p>&copy; Henryk Krzyszczak</p>
     </footer>
+  </div>
 </div>
 </body>
 </html>
