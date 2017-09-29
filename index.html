@@ -8,7 +8,7 @@
         href="css/style.css"/>
 </head>
 <body>
-<div class="main-container">
+<div class="main-container container">
 
   <header class="header row">
     <div class="col-xxs-12 col-xs-3 col-3" _>
@@ -59,33 +59,35 @@
             <legend class="contact-form__title">Send some message to me</legend>
             <input type="hidden" name="reply-to"
                    value="h.krzyszczak@electriclight.pl">
-            <p class="contact-form__inner-space">
+            <div class="row">
               <label class="contact-form__labels"
                      for="name">Your name: </label>
-            </p>
-            <p class="contact-form__inner-space">
+            </div>
+            <div class="row">
               <input type="text"
                      name="name"
                      id="name"
-                     class="contact-form__name contact-form--active">
-            </p>
-            <p class="contact-form__inner-space">
+                     class="iput_fields">
+            </div>
+            <div class="row">
               <label class="contact-form__labels"
                      for="email">Your e-mail: </label>
-            </p>
-            <p class="contact-form__inner-space">
+            </div>
+            <div class="row">
               <input type="text"
                      name="email"
                      id="email"
-                     class="contact-form__email  contact-form--active">
-            </p>
-            <p class="contact-form__inner-space">
+                     class="  iput_fields">
+            </div>
+            <div class="row">
               <label class="contact-form__labels"
                      for="message">Message: </label>
+            </div>
+            <div class="row">
               <textarea name="message"
                         id="message"
-                        class="contact-form__message  contact-form--active"></textarea>
-            </p>
+                        class="iput_fields  "></textarea>
+            </div>
             <input type="submit"
                    value="Send"
                    class="send-button">
@@ -95,7 +97,7 @@
     </aside>
   </div>
   <div class="row">
-    <footer class="footer col-12">
+    <footer class="footer col-xxs-12">
       <p>&copy; Henryk Krzyszczak</p>
     </footer>
   </div>
