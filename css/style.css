@@ -1,6 +1,6 @@
 body{
-    color: white;
-    background-color: #4bbaff;
+    color: black;
+    background-color: #d5e1df;
     font-family: Helvetica, sans-serif;
     margin: 0;
 }
@@ -9,22 +9,27 @@ body{
     box-sizing: border-box;
 }
 
+.container {
+    padding-left: 15px;
+    width: 100%;
+    padding-right: 15px;
+}
 
 [class*="col-"] {
     padding: 0;
     float: left;
-    width: 100%;
     margin: 15px 0;
     text-align: center;
 }
 
 .row {
+    margin-right: -15px;
+    margin-left: 15px;
     float: left;
     width: 100%;
 }
 
 
-@media (min-width: 768px) {
     .col-xxs-1 {width: 8.33%;}
     .col-xxs-2 {width: 16.66%;}
     .col-xxs-3 {width: 25%;}
@@ -41,8 +46,6 @@ body{
     [class*="col-xs-"] {
         text-align: center;
     }
-}
-
 
 @media (min-width: 768px) {
     .col-xs-1 {width: 8.33%;}
@@ -181,4 +184,27 @@ img {
     border-top:  solid 2px #000000;
     clear: both;
     margin: 0;
+}
+
+.octo, .octo div {
+    margin: 0 auto;
+    transform-origin: 50% 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+.octo, .octo div {
+    width: 160px;
+    height: 160px;
+}
+.octo {
+    transform: rotate(45deg);
+
+}
+.octo1 {
+    transform: rotate(-45deg);
+}
+
+.iput_fields{
+    background-color: #e3eaa7;
 }
