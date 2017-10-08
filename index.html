@@ -8,100 +8,109 @@
         href="css/style.css"/>
 </head>
 <body>
-<div class="main-container container">
+<div class="container_main">
+  <div class="container hover_shadow">
 
-  <header class="header row">
-    <div class="col-xxs-12 col-xs-3 col-3" _>
-      <div class="octo">
-        <div class="octo1">
-          <img src="images/HK_TB.jpg"
-               alt="my profile photo"/>
+    <header class="header row">
+      <div class="col-xxs-12 col-xs-4 col-lg-4 my_avatar">
+        <div class="octo">
+          <div class="octo1">
+            <img src="images/HK_TB.jpg"
+                 alt="my profile photo"/>
+          </div>
         </div>
+        <h1 class="header__name">
+          Henryk Krzyszczak
+        </h1>
+        <h2 class="header__descryption">
+          Junior Front-end developer
+        </h2>
       </div>
-    </div>
+      <div class="col-xxs-12 col-xs-4 col-4 contact_me">
 
+      </div>
+      <div class="col-xxs-12 col-xs-4 col-4 about_me">
 
-    <div class="col-xxs-12 col-xs-9 col-9">
-      <h1 class="header__name">
-        Henryk Krzyszczak
-      </h1>
-      <h2 class="header__descryption">
-        Junior Front-end developer
-      </h2>
-    </div>
-  </header>
-  <div class="row">
-    <main class="col-xxs-12 col-xs-6 col-lg-9 block">
-      <h3>Experience</h3>
-      <h4 class="block__title">
-        Upon completion of the course infoShare Academy I'll get the following skills:
-      </h4>
-      <ul class="block__list">
-        <li class="block__list--item"><p>HTML </p></li>
-        <li class="block__list--item"><p>CSS</p></li>
-        <li class="block__list--item"><p>JavaScript</p></li>
-      </ul>
+      </div>
+    </header>
 
-    </main>
-    <aside class="col-xxs-12 col-xs-6 col-lg-3 asside">
-      <nav>
-        <div class="row">
-          <h3 class="asside__title">
-            Projects
-          </h3>
-        </div>
-        <ul class="asside__list">
-          <li><a href="https://github.com/HKrzyszczak/hkrzyszczak.github.io">My GitHub repository</a></li>
-          <li><a href="https://github.com/infoshareacademy/jfdzl1-red-coders/">Our team repository</a></li>
+    <div class="content row">
+      <main class="col-xxs-12 col-xs-6 col-lg-6 experience">
+        <h3>Experience</h3>
+        <h4 class="block__title">
+          Upon completion of the course infoShare Academy I'll get the following skills:
+        </h4>
+        <ul class="block__list">
+          <li class="block__list--item"><p>HTML </p></li>
+          <li class="block__list--item"><p>CSS</p></li>
+          <li class="block__list--item"><p>JavaScript</p></li>
         </ul>
-        <form method="POST"
-              action="http://api.jfdzl1.is-academy.pl/emailer.php"
-              class="contact-form">
-          <fieldset class="contact-form__container">
-            <legend class="contact-form__title">Send some message to me</legend>
-            <input type="hidden" name="reply-to"
-                   value="h.krzyszczak@electriclight.pl">
+      </main>
+      <aside class="col-xxs-12 col-xs-6 col-lg-3 education_skills">
+        <div class="education">
+
+        </div>
+        <div class="skills">
+          <nav>
             <div class="row">
-              <label class="contact-form__labels"
-                     for="name">Your name: </label>
+              <h3 class="asside__title">
+                Projects
+              </h3>
             </div>
-            <div class="row">
-              <input type="text"
-                     name="name"
-                     id="name"
-                     class="iput_fields">
-            </div>
-            <div class="row">
-              <label class="contact-form__labels"
-                     for="email">Your e-mail: </label>
-            </div>
-            <div class="row">
-              <input type="text"
-                     name="email"
-                     id="email"
-                     class="  iput_fields">
-            </div>
-            <div class="row">
-              <label class="contact-form__labels"
-                     for="message">Message: </label>
-            </div>
-            <div class="row">
+            <ul class="asside__list">
+              <li><a href="https://github.com/HKrzyszczak/hkrzyszczak.github.io">My GitHub repository</a></li>
+              <li><a href="https://github.com/infoshareacademy/jfdzl1-red-coders/">Our team repository</a></li>
+            </ul>
+            <form method="POST"
+                  action="http://api.jfdzl1.is-academy.pl/emailer.php"
+                  class="contact-form">
+              <fieldset class="contact-form__container">
+                <legend class="contact-form__title">Send some message to me</legend>
+                <input type="hidden" name="reply-to"
+                       value="h.krzyszczak@electriclight.pl">
+                <div class="row">
+                  <label class="contact-form__labels"
+                         for="name">Your name: </label>
+                </div>
+                <div class="row">
+                  <input type="text"
+                         name="name"
+                         id="name"
+                         class="iput_fields">
+                </div>
+                <div class="row">
+                  <label class="contact-form__labels"
+                         for="email">Your e-mail: </label>
+                </div>
+                <div class="row">
+                  <input type="text"
+                         name="email"
+                         id="email"
+                         class="  iput_fields">
+                </div>
+                <div class="row">
+                  <label class="contact-form__labels"
+                         for="message">Message: </label>
+                </div>
+                <div class="row">
               <textarea name="message"
                         id="message"
                         class="iput_fields  "></textarea>
-            </div>
-            <input type="submit"
-                   value="Send"
-                   class="send-button">
-          </fieldset>
-        </form>
-      </nav>
-    </aside>
-  </div>
-  <div class="row">
-    <footer class="footer col-xxs-12">
-      <p>&copy; Henryk Krzyszczak</p>
-    </footer>
+                </div>
+                <input type="submit"
+                       value="Send"
+                       class="send-button">
+              </fieldset>
+            </form>
+          </nav>
+        </div>
+      </aside>
+    </div>
+    <div class="row">
+      <footer class="footer col-xxs-12">
+        <p>&copy; Henryk Krzyszczak</p>
+      </footer>
+    </div>
   </div>
 </div>
 </body>
