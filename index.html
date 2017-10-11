@@ -10,47 +10,201 @@
 <body>
 <div class="container_main">
   <div class="container hover_shadow">
-
     <header class="header row">
-      <div class="col-xxs-12 col-xs-4 col-lg-4 my_avatar">
-        <div class="octo">
-          <div class="octo1">
-            <img src="images/HK_TB.jpg"
-                 alt="my profile photo"/>
+      <div class="col-xxs-12 col-xs-12 col-lg-4 my_avatar">
+        <div class="row">
+        <div class="col-xxs-3 col-lg-12">
+          <div class="octo">
+            <div class="octo1">
+              <img src="images/HK_TB.jpg"
+                   alt="my profile photo"/>
+            </div>
           </div>
         </div>
-        <h1 class="header__name">
-          Henryk Krzyszczak
-        </h1>
-        <h2 class="header__descryption">
-          Junior Front-end developer
-        </h2>
+        <div class="col-xxs-9 col-lg-12">
+          <h1 class="header__name">
+            Henryk Krzyszczak
+          </h1>
+          <h2 class="header__descryption">
+            Junior Front-end developer
+          </h2>
+        </div>
       </div>
-      <div class="col-xxs-12 col-xs-4 col-4 contact_me">
-
       </div>
-      <div class="col-xxs-12 col-xs-4 col-4 about_me">
 
+
+      <div class="col-xxs-12 col-xs-6 col-lg-4 contact_me">
+        <h1>Contact me</h1>
+        <ul>
+
+          <li>
+            <a class="contact_link">
+              <img src="./images/phone.svg" class="icon">
+              <h3 class="display_inline">+48 510 969 797</h3>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/HKrzyszczak/hkrzyszczak.github.io" class="contact_link">
+              <img src="./images/github.svg" class="icon">
+              <h3 class="display_inline">My GitHub repository</h3>
+            </a>
+          <li>
+            <a href="https://www.linkedin.com/in/hkrzyszczak" class="contact_link">
+              <img src="./images/linkedin.svg" class="icon">
+              <h3 class="display_inline">My LinkedIn</h3>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:h.krzyszczak@electriclight.pl" class="contact_link">
+              <img src="./images/email.svg" class="icon">
+              <h3 class="display_inline">e-mail address</h3>
+            </a>
+          </li>
+        </ul>
+        <form method="POST"
+              action="http://api.jfdzl1.is-academy.pl/emailer.php"
+              class="contact-form">
+          <fieldset class="contact-form__container">
+            <legend class="contact-form__title">Send some message to me</legend>
+            <input type="hidden" name="reply-to"
+                   value="h.krzyszczak@electriclight.pl">
+            <div class="row">
+              <label class="contact-form__labels"
+                     for="name">Your name: </label>
+            </div>
+            <div class="row">
+              <input type="text"
+                     name="name"
+                     id="name"
+                     class="iput_fields">
+            </div>
+            <div class="row">
+              <label class="contact-form__labels"
+                     for="email">Your e-mail: </label>
+            </div>
+            <div class="row">
+              <input type="text"
+                     name="email"
+                     id="email"
+                     class="  iput_fields">
+            </div>
+            <div class="row">
+              <label class="contact-form__labels"
+                     for="message">Message: </label>
+            </div>
+            <div class="row">
+              <textarea name="message"
+                        id="message"
+                        class="iput_fields  "></textarea>
+            </div>
+            <input type="submit"
+                   value="Send"
+                   class="send-button">
+          </fieldset>
+        </form>
+      </div>
+      <div class="col-xxs-12 col-xs-6 col-lg-4 about_me">
+        <h1>About me</h1>
+        <p>I am a programmer and an electronics engineer. For many years has been dealing with new technologies.
+          I am also interested in robotics, science and science fiction literature and quantum physics.
+        </p>
       </div>
     </header>
 
     <div class="content row">
       <main class="col-xxs-12 col-xs-6 col-lg-6 experience">
-        <h3>Experience</h3>
-        <h4 class="block__title">
-          Upon completion of the course infoShare Academy I'll get the following skills:
-        </h4>
-        <ul class="block__list">
-          <li class="block__list--item"><p>HTML </p></li>
-          <li class="block__list--item"><p>CSS</p></li>
-          <li class="block__list--item"><p>JavaScript</p></li>
-        </ul>
+        <h1>Experience</h1>
+        <div class="row">
+          <div class="col-xxs-3">
+            <p>11.2016 – for now</p>
+          </div>
+          <div class="col-xxs-9">
+            <h4>VBA programmer</h4>
+            <p>X-mart Group Sp. z o.o.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xxs-3">
+            <p>07.2014 – for now</p>
+          </div>
+          <div class="col-xxs-9">
+            <h4>Industrial automation technician</h4>
+            <p>Electric Light Henryk Krzyszczak</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xxs-3">
+            <p>10.2013 – 10.2016</p>
+          </div>
+          <div class="col-xxs-9">
+            <h4>VBA programmer</h4>
+            <p>Xmart Group Mariola Zarzyka</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xxs-3">
+            <p>10.2013 – 12.2014</p>
+          </div>
+          <div class="col-xxs-9">
+            <h4>IT Specialist</h4>
+            <p>Lubelskie Fabryki Wag FAWAG SA</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xxs-3">
+            <p>03.2007 – 09.2013</p>
+          </div>
+          <div class="col-xxs-9">
+            <h4>quality manager (02.2012 – 09.2013)</h4>
+            <h4>SMT pick&place machine operator, production worker (03.2007 – 10.2011)</h4>
+            <p>LUMOtech Poland sp. z o. o., Lumotech LED sp. z o. o.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xxs-3">
+            <p>11.2001 – 11.2006</p>
+          </div>
+          <div class="col-xxs-9">
+            <h4>operator of cutting and stripping machines, production worker</h4>
+            <p>Tewa Termico Sp. z o.o., Electro Car Sp. z o. o.</p>
+          </div>
+        </div>
       </main>
-      <aside class="col-xxs-12 col-xs-6 col-lg-3 education_skills">
-        <div class="education">
 
+
+      <aside class="col-xxs-12 col-xs-6 col-lg-6 education_skills">
+        <div class="education">
+          <h1>Education</h1>
+          <div class="row">
+            <div class="col-xxs-3">
+              <p>06.2017 – 01.2018</p>
+            </div>
+            <div class="col-xxs-9">
+              <h4>Junior Front-end Developer Course</h4>
+              <p>Specjalization: JavaScript, HTML5, CSS3</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xxs-3">
+              <p>09.1995 – 06.2000</p>
+            </div>
+            <div class="col-xxs-9">
+              <h4>Electronic School Complex in Lublin</h4>
+              <p>Specialization: Electronics technician Radio and TV </p>
+            </div>
+          </div>
         </div>
         <div class="skills">
+          <h1>Skills</h1>
+          <div class="row">
+            <div class="col-xxs-3">
+              <p>HTML5, CSS3</p>
+            </div>
+            <div class="col-xxs-9">
+
+            </div>
+          </div>
+
           <nav>
             <div class="row">
               <h3 class="asside__title">
@@ -61,56 +215,14 @@
               <li><a href="https://github.com/HKrzyszczak/hkrzyszczak.github.io">My GitHub repository</a></li>
               <li><a href="https://github.com/infoshareacademy/jfdzl1-red-coders/">Our team repository</a></li>
             </ul>
-            <form method="POST"
-                  action="http://api.jfdzl1.is-academy.pl/emailer.php"
-                  class="contact-form">
-              <fieldset class="contact-form__container">
-                <legend class="contact-form__title">Send some message to me</legend>
-                <input type="hidden" name="reply-to"
-                       value="h.krzyszczak@electriclight.pl">
-                <div class="row">
-                  <label class="contact-form__labels"
-                         for="name">Your name: </label>
-                </div>
-                <div class="row">
-                  <input type="text"
-                         name="name"
-                         id="name"
-                         class="iput_fields">
-                </div>
-                <div class="row">
-                  <label class="contact-form__labels"
-                         for="email">Your e-mail: </label>
-                </div>
-                <div class="row">
-                  <input type="text"
-                         name="email"
-                         id="email"
-                         class="  iput_fields">
-                </div>
-                <div class="row">
-                  <label class="contact-form__labels"
-                         for="message">Message: </label>
-                </div>
-                <div class="row">
-              <textarea name="message"
-                        id="message"
-                        class="iput_fields  "></textarea>
-                </div>
-                <input type="submit"
-                       value="Send"
-                       class="send-button">
-              </fieldset>
-            </form>
+
           </nav>
         </div>
       </aside>
     </div>
-    <div class="row">
-      <footer class="footer col-xxs-12">
-        <p>&copy; Henryk Krzyszczak</p>
-      </footer>
-    </div>
+    <footer class="footer col-xxs-12 row">
+      <p>&copy; Henryk Krzyszczak</p>
+    </footer>
   </div>
 </div>
 </body>
