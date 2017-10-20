@@ -1,6 +1,5 @@
 body{
     color: white;
-    /*background-color: #d5e1df;*/
     font-family: Helvetica, sans-serif;
     margin: 0;
 }
@@ -51,11 +50,16 @@ body{
     margin: 0;
 }
 
-
 img {
     max-width: 100%;
     height: auto;
     display: inline-block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 10px 15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 10px 15px rgba(0,0,0,0.75);
+    box-shadow: 0 0 10px 15px rgba(0,0,0,0.75);
 }
 
 
@@ -102,35 +106,13 @@ img {
     border: 2px solid #05ff05;
 }
 
-.octo, .octo div {
-    margin: 0 auto;
-    transform-origin: 50% 50%;
-    overflow: hidden;
-    width: 200px;
-    height: 200px;
-}
-
-.octo, .octo div {
-    width: 160px;
-    height: 160px;
-}
-
-.octo {
-    transform: rotate(45deg);
-
-}
-
-.octo1 {
-    transform: rotate(-45deg);
-}
-
 .iput_fields{
     background-color: #e3eaa7;
 }
 
 .my_avatar {
     text-align: center;
-    background-color: #202123;
+    background-image: url("../images/css_color.jpg");
     height: 100%;
     padding: 15px;
     margin: 0;
@@ -173,7 +155,7 @@ img {
     }
 
     .my_avatar {
-        height: 33.33%;
+        height: 50%;
 
     }
 
@@ -233,45 +215,44 @@ img {
     height: 33.33%;
     display: block;
     padding: 0;
+    background-image: url("../images/html_code.jpg");
 }
 
 .contact_me {
-    background-color: #5f9ad2;
+    background-color: transparent;
     height: 100%;
     padding: 15px;
     margin: 0;
-    color: #FFFDFF;
+
+
 }
 .contact_me ul {
     list-style: none;
 }
 .contact_me ul li {
-    /*height: 100%;*/
     margin: 15px 0;
     padding: 0;
 }
-.contact_me ul li a:only-child {
-    /*display: inline;*/
-    vertical-align: middle;
 
+.white_with_shadow {
+    color: #FFFDFF;
+    text-shadow: 0 -6px  10px #000000, 0 6px  10px #000000, -6px 0  10px #000000, 6px 0  10px #000000;
 }
+
 .contact_me ul li  h3 {
     display: inline-block;
     vertical-align: middle;
     margin: 0;
+
 }
-.contact_me ul li a h3 {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-}
+
 .contact_me ul li a img {
     display: inline-block;
     vertical-align: middle;
 }
 
 .about_me {
-    background-color: #387d95;
+    background-color: transparent;
     height: 100%;
     padding: 15px;
     margin: 0;
@@ -281,7 +262,7 @@ img {
     height: 63.66%;
 }
 
-.content h1 {
+.content h2 {
     color: #387d95
 }
 
@@ -321,3 +302,7 @@ img {
     color: white;
 }
 
+.education_skills a {
+    text-decoration: none;
+    color: #ffffff;
+}
