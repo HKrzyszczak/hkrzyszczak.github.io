@@ -39,17 +39,54 @@
 			// Fix: Placeholder polyfill.
 				$('form').placeholder();
 
+				function validateEmail(sEmail) {
+					var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+					if (filter.test(sEmail)) {
+							return true;
+					}
+					else {
+							return false;
+					}
+			}
+
+			function validateForm() {
+				var email = $('#email').val();
+				var name = $('#name').val();
+				var message = $('#message').val();
+				var test = validateEmail(email) && name.length && message.length;
+				if (test) {
+					$('.submit').removeClass('disabled');
+					return true;
+				} else {
+					$('.submit').addClass('disabled');
+					return false;
+				}
+
+			}
 			// Hack: Activate non-input submits.
 				$('form').on('click', '.submit', function(event) {
-
+					
 					// Stop propagation, default.
 						event.stopPropagation();
 						event.preventDefault();
-
 					// Submit form.
+					if (validateForm()) {
 						$(this).parents('form').submit();
-
+					}
 				});
+
+				$('#email').on('input', null, null, function(event) {
+						validateForm();
+				});
+
+				$('#message').on('input', null, null, function(event) {
+					validateForm();
+				});
+
+				$('#name').on('input', null, null, function(event) {
+					validateForm();
+				});
+
 
 		// Prioritize "important" elements on medium.
 			skel.on('+medium -medium', function() {
