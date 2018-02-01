@@ -53,7 +53,7 @@
 				var email = $('#email').val();
 				var name = $('#name').val();
 				var message = $('#message').val();
-				var test = validateEmail(email) && name.length && message.length;
+				var test = validateEmail(email) &&  name.length && message.length;
 				if (test) {
 					$('.submit').removeClass('disabled');
 					return true;
@@ -61,8 +61,8 @@
 					$('.submit').addClass('disabled');
 					return false;
 				}
-
 			}
+
 			// Hack: Activate non-input submits.
 				$('form').on('click', '.submit', function(event) {
 					
@@ -75,18 +75,9 @@
 					}
 				});
 
-				$('#email').on('input', null, null, function(event) {
+				$('#email, #message, #name ').on('input', null, null, function(event) {
 						validateForm();
 				});
-
-				$('#message').on('input', null, null, function(event) {
-					validateForm();
-				});
-
-				$('#name').on('input', null, null, function(event) {
-					validateForm();
-				});
-
 
 		// Prioritize "important" elements on medium.
 			skel.on('+medium -medium', function() {
