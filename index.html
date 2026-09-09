@@ -864,6 +864,129 @@
             font-size: 0.8rem;
         }
 
+        /* Hardware & Power Section */
+        .hardware-section {
+            margin-bottom: 90px;
+        }
+
+        .hw-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .hw-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(16px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .hw-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.4);
+        }
+
+        .hw-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .hw-card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(6, 182, 212, 0.12);
+            color: var(--accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+        }
+
+        .hw-card h3 {
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .hw-card p.hw-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+
+        .hw-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .hw-list li {
+            position: relative;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 12px 14px 12px 34px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .hw-list li strong {
+            color: var(--text-main);
+        }
+
+        .hw-list li::before {
+            content: "⚡";
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            font-size: 0.85rem;
+            color: var(--accent-glow);
+        }
+
+        .hw-pill-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        .hw-pill {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .hw-pill.eco {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .hw-pill.turbo {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
         @media (max-width: 860px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.2rem; }
@@ -886,6 +1009,7 @@
             
             <ul class="nav-links">
                 <li><a href="#how-it-works" data-i18n="nav_how">How it works</a></li>
+                <li><a href="#hardware-power" data-i18n="nav_hw">Hardware & Power</a></li>
                 <li><a href="#simulator" data-i18n="nav_sim">Simulator</a></li>
                 <li><a href="#truth-table" data-i18n="nav_facts">Facts</a></li>
                 <li><a href="#compatible-tvs" data-i18n="nav_tvs">Compatible TVs</a></li>
@@ -1017,6 +1141,108 @@
                     <p data-i18n="f6_desc">
                         Easy browser setup at <code>http://ambilight.local</code>. Effortless over-the-air firmware updates and real-time LED diagnostics.
                     </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hardware & Power Engineering -->
+        <section id="hardware-power" class="hardware-section">
+            <div class="section-header">
+                <h2 data-i18n="hw_title">Hardware Engineering & Power Flexibility</h2>
+                <p data-i18n="hw_subtitle">Industrial-grade fail-safe LED strip design, intelligent USB port detection, and dual-mode power engineering.</p>
+            </div>
+
+            <div class="hw-grid">
+                <!-- Card 1: Dual Power -->
+                <div class="hw-card">
+                    <div>
+                        <div class="hw-card-header">
+                            <div class="hw-card-icon">⚡🔌</div>
+                            <div>
+                                <h3 data-i18n="hw_c1_title">Dual Power Modes: TV USB vs Turbo Charger</h3>
+                                <div class="hw-pill-row">
+                                    <span class="hw-pill eco">Eco 900mA / 4.5W</span>
+                                    <span class="hw-pill turbo">Turbo 15W / 3A</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="hw-desc" data-i18n="hw_c1_desc">
+                            Choose between a zero-wire stealth setup powered directly by your TV, or turbocharge brightness with an external USB adapter.
+                        </p>
+                        <ul class="hw-list">
+                            <li data-i18n="hw_c1_item1"><strong>TV USB Mode (Eco 900mA / 4.5W):</strong> Direct power from TV USB 3.0. Automatic on/off sync with TV power state. Dynamic Current Limiter ensures 100% safety for the TV motherboard.</li>
+                            <li data-i18n="hw_c1_item2"><strong>External Charger Mode (Turbo 15W / 3A):</strong> Unlocks 100% unrestricted peak brightness on pure white scenes, high-density LED strips (144/m), and heavy silicone neon diffusers.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: WS2813 Backup Data Line -->
+                <div class="hw-card">
+                    <div>
+                        <div class="hw-card-header">
+                            <div class="hw-card-icon">🛡️✨</div>
+                            <div>
+                                <h3 data-i18n="hw_c2_title">WS2813 Backup Data Line & ~7W/m Efficiency</h3>
+                                <div class="hw-pill-row">
+                                    <span class="hw-pill">Dual-Data Line (DI+BI)</span>
+                                    <span class="hw-pill eco">~7W / Meter Typical</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="hw-desc" data-i18n="hw_c2_desc">
+                            Industrial reliability with dual data redundancy and efficient power draw under real viewing conditions.
+                        </p>
+                        <ul class="hw-list">
+                            <li data-i18n="hw_c2_item1"><strong>Dual-Data Redundancy (DI + BI):</strong> Unlike fragile WS2812B strips where one failed chip kills the entire chain, WS2813 features an integrated backup line. If any single LED breaks, the signal bypasses it without interruption.</li>
+                            <li data-i18n="hw_c2_item2"><strong>Real-World Efficiency:</strong> Dynamic movie and gaming scenes consume only <strong>~7W per meter</strong>, keeping power footprint minimal and temperatures cool.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: Density & Neon Flex -->
+                <div class="hw-card">
+                    <div>
+                        <div class="hw-card-header">
+                            <div class="hw-card-icon">🌈💡</div>
+                            <div>
+                                <h3 data-i18n="hw_c3_title">Modular LED Densities & Silicone Neon Flex</h3>
+                                <div class="hw-pill-row">
+                                    <span class="hw-pill">30 / 60 / 144 LED/m</span>
+                                    <span class="hw-pill turbo">Silicone Neon COB</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="hw-desc" data-i18n="hw_c3_desc">
+                            Tailor your installation with customizable diode density and continuous diffusion optics.
+                        </p>
+                        <ul class="hw-list">
+                            <li data-i18n="hw_c3_item1"><strong>Density Options:</strong> <strong>30 LED/m</strong> (Eco TV USB), <strong>60 LED/m</strong> (Cinema Golden Standard), or <strong>144 LED/m</strong> (Liquid Studio Blending).</li>
+                            <li data-i18n="hw_c3_item2"><strong>Silicone Neon Flex / COB Diffuser:</strong> Converts discrete LED hot-spots into an ultra-smooth, continuous neon light bar. (Recommended with USB Charger mode; throttles to safe 900mA on TV USB).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 4: Port Detection -->
+                <div class="hw-card">
+                    <div>
+                        <div class="hw-card-header">
+                            <div class="hw-card-icon">🔍🧠</div>
+                            <div>
+                                <h3 data-i18n="hw_c4_title">Intelligent USB Port Detection Architecture</h3>
+                                <div class="hw-pill-row">
+                                    <span class="hw-pill">USB BC 1.2 DCP/SDP</span>
+                                    <span class="hw-pill">Web Portal Control</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="hw-desc" data-i18n="hw_c4_desc">
+                            How GlowEdge automatically detects your power source to protect hardware and optimize brightness.
+                        </p>
+                        <ul class="hw-list">
+                            <li data-i18n="hw_c4_item1"><strong>USB BC 1.2 Hardware Sensing:</strong> Distinguishes between Standard TV Ports (SDP, 500-900mA) and Dedicated Charging Ports (DCP, shorted D+/D- &lt;200Ω or divider resistance).</li>
+                            <li data-i18n="hw_c4_item2"><strong>Web Portal Power Budget Control:</strong> Select Auto-Detect, TV USB (900mA Max), or Wall Charger (3A Max) in the browser portal (<code>http://ambilight.local</code>) to match your custom setup.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1188,6 +1414,7 @@
         const translations = {
             en: {
                 nav_how: "How it works",
+                nav_hw: "Hardware & Power",
                 nav_sim: "Simulator",
                 nav_facts: "Facts",
                 nav_tvs: "Compatible TVs",
@@ -1222,6 +1449,24 @@
                 f5_desc: "Powered by ESP32-S3 / C3. Employs hardware RMT pulse generation with zero CPU stutter, delivering instantaneous color reaction and cinematic gamma correction.",
                 f6_title: "Built-in Web Portal & Wireless OTA",
                 f6_desc: "Easy browser setup at http://ambilight.local. Effortless over-the-air firmware updates and real-time LED diagnostics.",
+                hw_title: "Hardware Engineering & Power Flexibility",
+                hw_subtitle: "Industrial-grade fail-safe LED strip design, intelligent USB port detection, and dual-mode power engineering.",
+                hw_c1_title: "Dual Power Modes: TV USB vs Turbo Charger",
+                hw_c1_desc: "Choose between a zero-wire stealth setup powered directly by your TV, or turbocharge brightness with an external USB adapter.",
+                hw_c1_item1: "<strong>TV USB Mode (Eco 900mA / 4.5W):</strong> Direct power from TV USB 3.0. Automatic on/off sync with TV power state. Dynamic Current Limiter ensures 100% safety for the TV motherboard.",
+                hw_c1_item2: "<strong>External Charger Mode (Turbo 15W / 3A):</strong> Unlocks 100% unrestricted peak brightness on pure white scenes, high-density LED strips (144/m), and heavy silicone neon diffusers.",
+                hw_c2_title: "WS2813 Backup Data Line & ~7W/m Efficiency",
+                hw_c2_desc: "Industrial reliability with dual data redundancy and efficient power draw under real viewing conditions.",
+                hw_c2_item1: "<strong>Dual-Data Redundancy (DI + BI):</strong> Unlike fragile WS2812B strips where one failed chip kills the entire chain, WS2813 features an integrated backup line. If any single LED breaks, the signal bypasses it without interruption.",
+                hw_c2_item2: "<strong>Real-World Efficiency:</strong> Dynamic movie and gaming scenes consume only <strong>~7W per meter</strong>, keeping power footprint minimal and temperatures cool.",
+                hw_c3_title: "Modular LED Densities & Silicone Neon Flex",
+                hw_c3_desc: "Tailor your installation with customizable diode density and continuous diffusion optics.",
+                hw_c3_item1: "<strong>Density Options:</strong> <strong>30 LED/m</strong> (Eco TV USB), <strong>60 LED/m</strong> (Cinema Golden Standard), or <strong>144 LED/m</strong> (Liquid Studio Blending).",
+                hw_c3_item2: "<strong>Silicone Neon Flex / COB Diffuser:</strong> Converts discrete LED hot-spots into an ultra-smooth, continuous neon light bar. (Recommended with USB Charger mode; throttles to safe 900mA on TV USB).",
+                hw_c4_title: "Intelligent USB Port Detection Architecture",
+                hw_c4_desc: "How GlowEdge automatically detects your power source to protect hardware and optimize brightness.",
+                hw_c4_item1: "<strong>USB BC 1.2 Hardware Sensing:</strong> Distinguishes between Standard TV Ports (SDP, 500-900mA) and Dedicated Charging Ports (DCP, shorted D+/D- &lt;200Ω or divider resistance).",
+                hw_c4_item2: "<strong>Web Portal Power Budget Control:</strong> Select Auto-Detect, TV USB (900mA Max), or Wall Charger (3A Max) in the browser portal (<code>http://ambilight.local</code>) to match your custom setup.",
                 truth_title: "Transparent Facts: What GlowEdge Does & Does NOT",
                 truth_subtitle: "No marketing fluff. Clear, honest engineering expectations.",
                 truth_pos_title: "🟢 What GlowEdge Solves",
@@ -1260,6 +1505,7 @@
             },
             de: {
                 nav_how: "Funktionsweise",
+                nav_hw: "Hardware & Strom",
                 nav_sim: "Simulator",
                 nav_facts: "Fakten",
                 nav_tvs: "Kompatible TVs",
@@ -1294,6 +1540,24 @@
                 f5_desc: "Angetrieben von ESP32-S3. Nutzt Hardware-RMT-Signalgenerierung ohne CPU-Ruckler für absolut verzögerungsfreie Lichtübergänge.",
                 f6_title: "Integriertes Webportal & OTA",
                 f6_desc: "Bequeme Konfiguration im Browser unter http://ambilight.local mit drahtlosen Firmware-Updates.",
+                hw_title: "Hardware-Architektur & Flexible Stromversorgung",
+                hw_subtitle: "Industrielle LED-Streifen mit Backup-Datenleitung, intelligente USB-Port-Erkennung und Dual-Power-Architektur.",
+                hw_c1_title: "Dual-Power-Modi: TV-USB vs. Turbo-Ladegerät",
+                hw_c1_desc: "Wählen Sie zwischen unsichtbarer Stromversorgung direkt über den Fernseher oder maximaler Helligkeit mit externem USB-Netzteil.",
+                hw_c1_item1: "<strong>TV-USB-Modus (Eco 900mA / 4.5W):</strong> Direkte Versorgung über USB 3.0 des TVs. Schaltet sich synchron mit dem TV ein/aus. Dynamischer Power Limiter schützt das TV-Motherboard.",
+                hw_c1_item2: "<strong>Ladegerät-Modus (Turbo 15W / 3A):</strong> Nutzt ein standardmäßiges USB-C-Netzteil (5V 3A) für 100% Helligkeit bei reinweißen Szenen, 144 LED/m Streifen und Silikon-Neon-Diffusoren.",
+                hw_c2_title: "WS2813 Backup-Datenleitung & ~7W/m Effizienz",
+                hw_c2_desc: "Industrielle Ausfallsicherheit dank dualer Datenredundanz und minimaler Energieverbrauch.",
+                hw_c2_item1: "<strong>Duale Datenleitung (DI + BI):</strong> Fällt bei Standard-WS2812B-Streifen eine LED aus, bleibt der Rest dunkel. WS2813 besitzt eine Backup-Leitung – defekte LEDs werden nahtlos überbrückt.",
+                hw_c2_item2: "<strong>Realistischer Stromverbrauch:</strong> Dynamische Film- und Gaming-Szenen benötigen im Durchschnitt nur ca. <strong>7W pro Meter</strong>.",
+                hw_c3_title: "LED-Dichte-Auswahl & Silikon Neon-Flex",
+                hw_c3_desc: "Anpassbare Diodendichte und homogene Lichtleiter für punktfreies Ambiente.",
+                hw_c3_item1: "<strong>Dichteoptionen:</strong> <strong>30 LED/m</strong> (Eco TV-USB), <strong>60 LED/m</strong> (Kino-Standard) oder <strong>144 LED/m</strong> (Studio-Präzision).",
+                hw_c3_item2: "<strong>Silikon Neon-Flex / COB:</strong> Erzeugt einen nahtlosen, punktfreien Neon-Lichtbalken (am besten mit USB-Ladegerät; am TV-USB automatisch auf 900mA Eco-Modus gedrosselt).",
+                hw_c4_title: "Intelligente USB-Port-Erkennung & Schutz",
+                hw_c4_desc: "Wie GlowEdge Stromquellen unterscheidet und Hardware-Sicherheit gewährleistet.",
+                hw_c4_item1: "<strong>USB BC 1.2 Hardware-Erkennung:</strong> Unterscheidet TV-Ports (SDP, 500-900mA) von dedizierten Ladegeräten (DCP mit kurzgeschlossenen D+/D- Leitungen &lt;200Ω).",
+                hw_c4_item2: "<strong>Power-Management im Webportal:</strong> Im Konfigurationsmenü (<code>http://ambilight.local</code>) lässt sich der Modus manuell oder per Auto-Detect festlegen.",
                 truth_title: "Transparente Fakten: Was GlowEdge kann und was NICHT",
                 truth_subtitle: "Klare ingenieurtechnische Fakten ohne Marketing-Floskeln.",
                 truth_pos_title: "🟢 Was GlowEdge löst",
@@ -1332,6 +1596,7 @@
             },
             fr: {
                 nav_how: "Fonctionnement",
+                nav_hw: "Matériel & Alimentation",
                 nav_sim: "Simulateur",
                 nav_facts: "Faits",
                 nav_tvs: "Téléviseurs",
@@ -1366,6 +1631,24 @@
                 f5_desc: "Propulsé par ESP32-S3. Utilise les impulsions matérielles RMT sans ralentir le processeur pour un rendu ultra-fluide.",
                 f6_title: "Portail Web & Mises à jour OTA",
                 f6_desc: "Configuration simple sur http://ambilight.local avec mises à jour sans fil.",
+                hw_title: "Architecture Matérielle & Alimentation Flexible",
+                hw_subtitle: "Rubans LED industriels avec ligne de secours, détection intelligente des ports USB et double mode d'alimentation.",
+                hw_c1_title: "Modes d'alimentation : USB TV vs Chargeur Turbo",
+                hw_c1_desc: "Optez pour une installation discrète alimentée par le téléviseur ou débloquez la pleine puissance avec un chargeur USB.",
+                hw_c1_item1: "<strong>Mode USB TV (Eco 900mA / 4.5W) :</strong> Alimentation directe par le port USB 3.0 du téléviseur avec allumage/extinction synchronisé. Limiteur de courant dynamique sécurisant la carte mère du TV.",
+                hw_c1_item2: "<strong>Mode Chargeur Externe (Turbo 15W / 3A) :</strong> Débloque 100% de luminosité sur les scènes blanches, compatible rubans haute densité (144 LED/m) et néons silicone.",
+                hw_c2_title: "Ligne de secours WS2813 & Efficacité ~7W/m",
+                hw_c2_desc: "Fiabilité industrielle avec double canal de données et consommation électrique maîtrisée.",
+                hw_c2_item1: "<strong>Redondance Double Données (DI + BI) :</strong> Contrairement aux rubans WS2812B basiques, si une LED est endommagée sur un ruban WS2813, le signal la contourne automatiquement sans interrompre le reste du ruban.",
+                hw_c2_item2: "<strong>Consommation Réelle :</strong> Les scènes dynamiques de films et jeux ne consomment en moyenne que <strong>~7W par mètre</strong>.",
+                hw_c3_title: "Densités de LED & Néon Flex Silicone",
+                hw_c3_desc: "Personnalisation de la densité et optiques à diffusion continue sans points visibles.",
+                hw_c3_item1: "<strong>Densités au choix :</strong> <strong>30 LED/m</strong> (Éco TV USB), <strong>60 LED/m</strong> (Standard Cinéma), <strong>144 LED/m</strong> (Fluidité Studio).",
+                hw_c3_item2: "<strong>Néon Flex Silicone / COB :</strong> Transforme les points LED en une barre lumineuse néon continue et soyeuse (optimale avec chargeur USB ; bascule en mode éco 900mA sur port TV).",
+                hw_c4_title: "Détection Intelligente des Ports USB & Sécurité",
+                hw_c4_desc: "Comment GlowEdge identifie les sources d'alimentation et protège vos équipements.",
+                hw_c4_item1: "<strong>Détection Matérielle USB BC 1.2 :</strong> Différencie les ports TV standards (SDP, 500-900mA) des chargeurs muraux dédiés (DCP avec lignes D+/D- court-circuitées &lt;200Ω).",
+                hw_c4_item2: "<strong>Contrôle sur le Portail Web :</strong> Sélectionnez Auto-Detect, USB TV (max 900mA) ou Chargeur USB (max 3A) sur <code>http://ambilight.local</code>.",
                 truth_title: "Faits transparents : Ce que fait et ne fait PAS GlowEdge",
                 truth_subtitle: "Des attentes d'ingénierie claires et honnêtes.",
                 truth_pos_title: "🟢 Ce que résout GlowEdge",
@@ -1404,6 +1687,7 @@
             },
             es: {
                 nav_how: "Cómo funciona",
+                nav_hw: "Hardware y Energía",
                 nav_sim: "Simulador",
                 nav_facts: "Datos",
                 nav_tvs: "Televisores",
@@ -1438,6 +1722,24 @@
                 f5_desc: "Impulsado por ESP32-S3. Generación de pulsos por hardware sin pausas en la CPU para una reacción de color instantánea.",
                 f6_title: "Portal Web integrado y OTA inalámbrico",
                 f6_desc: "Configuración sencilla en http://ambilight.local con actualizaciones de firmware por aire.",
+                hw_title: "Arquitectura de Hardware y Flexibilidad de Energía",
+                hw_subtitle: "Tiras LED de grado industrial con línea de respaldo, detección inteligente de puertos USB y presupuesto de energía dual.",
+                hw_c1_title: "Modos de Energía Dual: USB TV vs Cargador Turbo",
+                hw_c1_desc: "Elige entre una instalación oculta alimentada por el televisor o desbloquea el brillo máximo con un cargador USB externo.",
+                hw_c1_item1: "<strong>Modo USB TV (Eco 900mA / 4.5W):</strong> Alimentación directa por USB 3.0 con encendido/apagado sincronizado con el televisor. Limitador dinámico que protege la placa del TV.",
+                hw_c1_item2: "<strong>Modo Cargador Turbo (15W / 3A):</strong> Habilita el 100% de brillo en escenas de blanco puro, tiras de alta densidad (144 LED/m) y difusores de neón de silicona.",
+                hw_c2_title: "Línea de Respaldo WS2813 y Eficiencia de ~7W/m",
+                hw_c2_desc: "Fiabilidad industrial con redundancia de doble señal y consumo eficiente en visualización real.",
+                hw_c2_item1: "<strong>Redundancia de Señal (DI + BI):</strong> Si un LED falla en una tira WS2813, la señal de respaldo lo esquiva automáticamente sin cortar la luz del resto de la tira.",
+                hw_c2_item2: "<strong>Consumo Real:</strong> Las películas y juegos consumen en promedio sólo <strong>~7W por metro</strong> en contenido dinámico.",
+                hw_c3_title: "Densidades de LED y Neón Flex de Silicona",
+                hw_c3_desc: "Ajusta la densidad de diodos y la óptica difusa continua para eliminar los puntos de luz.",
+                hw_c3_item1: "<strong>Opciones de Densidad:</strong> <strong>30 LED/m</strong> (Eco USB TV), <strong>60 LED/m</strong> (Estándar de Cine) y <strong>144 LED/m</strong> (Fluidez de Estudio).",
+                hw_c3_item2: "<strong>Neón Flex de Silicona / COB:</strong> Convierte los puntos individuales en una barra de luz continua tipo neón (recomendado con cargador USB; cambia a modo eco 900mA en USB de TV).",
+                hw_c4_title: "Detección Inteligente de Puertos USB y Protección",
+                hw_c4_desc: "Cómo GlowEdge identifica fuentes de alimentación y garantiza la seguridad del sistema.",
+                hw_c4_item1: "<strong>Detección USB BC 1.2:</strong> Distingue entre puertos de TV estándar (SDP, 500-900mA) y cargadores rápidos dedicados (DCP con líneas D+/D- unidas &lt;200Ω).",
+                hw_c4_item2: "<strong>Control desde el Portal Web:</strong> Configura Auto-Detect, USB TV (máx 900mA) o Cargador Rápido (máx 3A) desde <code>http://ambilight.local</code>.",
                 truth_title: "Datos transparentes: Qué hace y qué NO hace GlowEdge",
                 truth_subtitle: "Expectativas de ingeniería honestas y claras.",
                 truth_pos_title: "🟢 Lo que resuelve GlowEdge",
@@ -1476,6 +1778,7 @@
             },
             pl: {
                 nav_how: "Jak to działa",
+                nav_hw: "Sprzęt i Zasilanie",
                 nav_sim: "Symulator",
                 nav_facts: "Fakty",
                 nav_tvs: "Telewizory",
@@ -1510,6 +1813,24 @@
                 f5_desc: "Zbudowany na ESP32-S3 / C3. Wykorzystuje sprzętowy kontroler impulsów RMT bez obciążania procesora dla natychmiastowej reakcji barw.",
                 f6_title: "Wbudowany Portal Web & OTA",
                 f6_desc: "Wygodna konfiguracja przez przeglądarkę pod adresem http://ambilight.local z bezprzewodową aktualizacją softu.",
+                hw_title: "Inżynieria Sprzętowa i Elastyczność Zasilania",
+                hw_subtitle: "Przemysłowa niezawodność pasków LED z linią zapasową, inteligentna detekcja portów USB i dwutrybowy budżet mocy.",
+                hw_c1_title: "Dwa Tryby Zasilania: TV USB vs Szybka Ładowarka",
+                hw_c1_desc: "Wybierz dyskretny montaż bez dodatkowych kabli zasilany prosto z TV lub odblokuj maksymalną moc z zewnętrzną ładowarką USB.",
+                hw_c1_item1: "<strong>Tryb TV USB (Eco 900mA / 4.5W):</strong> Zasilanie bezpośrednio z portu USB 3.0 telewizora. Włącza się i wyłącza razem z TV. Dynamiczny ogranicznik prądu gwarantuje pełne bezpieczeństwo płyty głównej telewizora.",
+                hw_c1_item2: "<strong>Tryb Ładowarki USB (Turbo 15W / 3A):</strong> Podłącz zwykłą ładowarkę od telefonu (5V 3A), aby uzyskać 100% jasności w scenach z pełną bielą, obsłużyć gęste paski (144 LED/m) i neony silikonowe.",
+                hw_c2_title: "Paski WS2813 z Linią Backup & Pobór ~7W/m",
+                hw_c2_desc: "Przemysłowa niezawodność dzięki podwójnej linii sygnałowej i energooszczędność w codziennym użytkowaniu.",
+                hw_c2_item1: "<strong>Linia Zapasowa (DI + BI Redundancy):</strong> W tanich paskach WS2812B uszkodzenie jednej diody psuje cały pasek za nią. Paski WS2813 posiadają zapasową linię danych – jeśli jedna dioda ulegnie awarii, sygnał automatycznie ją omija!",
+                hw_c2_item2: "<strong>Rzeczywisty pobór prądu:</strong> Podczas oglądania filmów i grania w gry dynamiczne sceny zużywają średnio tylko <strong>ok. 7W na metr długości</strong>, co zapobiega nagrzewaniu i oszczędza energię.",
+                hw_c3_title: "Wybór Gęstości Diod & Optyka Neon Flex",
+                hw_c3_desc: "Dopasuj pasek do swoich potrzeb: od klasycznych diod po jednolity neon świetlny bez widocznych punktów.",
+                hw_c3_item1: "<strong>Wybór gęstości:</strong> <strong>30 LED/m</strong> (wersja oszczędna pod USB TV), <strong>60 LED/m</strong> (złoty standard kinowy i płynne gradienty), <strong>144 LED/m</strong> (studyjna precyzja i płynna linia światła).",
+                hw_c3_item2: "<strong>Neony świetlne (Silicone Neon Flex / COB):</strong> Specjalny dyfuzor silikonowy rozprasza światło, tworząc jednolitą neonową wstęgę bez efektu kropkowania diod (zalecana ładowarka USB; na USB TV system przełącza się w tryb oszczędny max 900mA).",
+                hw_c4_title: "Jak Działa Detekcja Portów USB i Ochrona",
+                hw_c4_desc: "Wyjaśnienie techniczne: jak urządzenie rozpoznaje źródło zasilania i chroni Twój telewizor.",
+                hw_c4_item1: "<strong>Standard USB BC 1.2 i linie danych:</strong> Port TV zgłasza się jako SDP (linie D+/D- otwarte/wysoka impedancja, limit 900mA). Dedykowana ładowarka sieciowa (DCP) posiada zwarte linie D+ i D- (&lt;200Ω) lub dedykowane dzielniki rezystorowe.",
+                hw_c4_item2: "<strong>Zarządzanie budżetem w Panelu Web:</strong> W panelu konfiguracyjnym (<code>http://ambilight.local</code>) możesz ustawić Auto-detekcję lub ręcznie wybrać tryb: TV USB (limit 900mA) albo Ładowarka USB (limit 3A).",
                 truth_title: "Rzetelne fakty: Co GlowEdge robi, a czego NIE",
                 truth_subtitle: "Bez marketingowych złudzeń. Zobacz dokładnie, jak moduł zachowuje się w codziennym użytkowaniu.",
                 truth_pos_title: "🟢 Co GlowEdge rozwiązuje",
