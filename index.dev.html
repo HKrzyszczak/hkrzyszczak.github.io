@@ -654,6 +654,77 @@
             border-radius: 6px;
         }
 
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .comparison-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .comparison-card.card-off {
+            border-color: rgba(239, 68, 68, 0.35);
+        }
+
+        .comparison-card.card-off:hover {
+            border-color: rgba(239, 68, 68, 0.6);
+            box-shadow: 0 16px 36px rgba(239, 68, 68, 0.15);
+        }
+
+        .comparison-card.card-on {
+            border-color: rgba(6, 182, 212, 0.45);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.12);
+        }
+
+        .comparison-card.card-on:hover {
+            border-color: rgba(6, 182, 212, 0.7);
+            box-shadow: 0 16px 36px rgba(6, 182, 212, 0.25);
+        }
+
+        .video-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 5;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-badge.badge-off {
+            background: rgba(239, 68, 68, 0.88);
+            color: #fff;
+            box-shadow: 0 0 14px rgba(239, 68, 68, 0.5);
+        }
+
+        .video-badge.badge-on {
+            background: rgba(6, 182, 212, 0.9);
+            color: #000;
+            box-shadow: 0 0 16px rgba(6, 182, 212, 0.6);
+        }
+
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1432,6 +1503,40 @@
                 <p data-i18n="vid_subtitle">Real 4K recordings of a 65″ Philips OLED TV running GlowEdge wireless bottom edge synchronization.</p>
             </div>
 
+            <div class="comparison-grid">
+                <div class="comparison-card card-off">
+                    <div class="video-wrapper">
+                        <div class="video-badge badge-off" data-i18n="vid_badge_off">🔴 3 SIDES — OFF (Factory)</div>
+                        <video controls playsinline preload="metadata" poster="./videos/poster_off.jpg" class="demo-video">
+                            <source src="./videos/glowedge_off_factory.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 data-i18n="vid_comp_off_title">Factory 3-Sided Ambilight (GlowEdge OFF)</h3>
+                        <p data-i18n="vid_comp_off_desc">Notice the dark void and missing illumination beneath the bottom TV bezel in the snow mountain scene.</p>
+                    </div>
+                </div>
+
+                <div class="comparison-card card-on">
+                    <div class="video-wrapper">
+                        <div class="video-badge badge-on" data-i18n="vid_badge_on">⚡ 4 SIDES — ON (GlowEdge)</div>
+                        <video controls playsinline preload="metadata" poster="./videos/poster_on.jpg" class="demo-video">
+                            <source src="./videos/glowedge_on_comparison.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 data-i18n="vid_comp_on_title">GlowEdge 4th Side Enabled (Full 360°)</h3>
+                        <p data-i18n="vid_comp_on_desc">The bottom edge dynamically syncs with the screen in real-time, eliminating the black bar and creating continuous ambient light.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 50px; margin-bottom: 24px;">
+                <h3 style="font-size: 1.35rem; font-weight: 700; color: #fff;" data-i18n="vid_more_title">More Real-World Demonstrations</h3>
+            </div>
+
             <div class="video-grid">
                 <div class="video-card">
                     <div class="video-wrapper">
@@ -1528,7 +1633,7 @@
                     <div class="feature-icon">🌐📲</div>
                     <h3 data-i18n="f6_title">Built-in Web Portal & Wireless OTA</h3>
                     <p data-i18n="f6_desc">
-                        Easy browser setup at <code>http://ambilight.local</code>. Effortless over-the-air firmware updates and real-time LED diagnostics.
+                        Easy browser setup at <code>http://glowedge.local</code>. Effortless over-the-air firmware updates and real-time LED diagnostics.
                     </p>
                 </div>
             </div>
@@ -1624,7 +1729,7 @@
                         </p>
                         <ul class="hw-list">
                             <li data-i18n="hw_c4_item1"><strong>USB BC 1.2 Hardware Sensing:</strong> Distinguishes between Standard TV Ports (SDP, 500-900mA) and Dedicated Charging Ports (DCP, shorted D+/D- &lt;200Ω or divider resistance).</li>
-                            <li data-i18n="hw_c4_item2"><strong>Web Portal Power Budget Control:</strong> Select Auto-Detect, TV USB (900mA Max), or Wall Charger (3A Max) in the browser portal (<code>http://ambilight.local</code>) to match your custom setup.</li>
+                            <li data-i18n="hw_c4_item2"><strong>Web Portal Power Budget Control:</strong> Select Auto-Detect, TV USB (900mA Max), or Wall Charger (3A Max) in the browser portal (<code>http://glowedge.local</code>) to match your custom setup.</li>
                         </ul>
                     </div>
                 </div>
@@ -1837,8 +1942,15 @@
                 preset_matrix: "🟢 Matrix Emerald",
                 preset_action: "💥 Cinema Action Blast",
                 vid_badge: "REAL HARDWARE FOOTAGE",
+                vid_badge_off: "🔴 3 SIDES — OFF (Factory)",
+                vid_badge_on: "⚡ 4 SIDES — ON (GlowEdge)",
                 vid_title: "GlowEdge in Action: Real TV Footage",
                 vid_subtitle: "Real 4K recordings of a 65″ Philips OLED TV running GlowEdge wireless bottom edge synchronization.",
+                vid_comp_off_title: "Factory 3-Sided Ambilight (GlowEdge OFF)",
+                vid_comp_off_desc: "Notice the dark void and missing illumination beneath the bottom TV bezel in the snow mountain scene.",
+                vid_comp_on_title: "GlowEdge 4th Side Enabled (Full 360°)",
+                vid_comp_on_desc: "The bottom edge dynamically syncs with the screen in real-time, eliminating the black bar and creating continuous ambient light.",
+                vid_more_title: "More Real-World Demonstrations",
                 vid1_title: "🏔️ Italian Alps 4K (Full 360° Immersion)",
                 vid1_desc: "Live 4K landscape demo showing ultra-smooth bottom gradient matching mountain slopes and daylight sky.",
                 vid2_title: "🌲 Nature Documentary (Lush Greens)",
@@ -1858,7 +1970,7 @@
                 f5_title: "Hardware RMT DMA (60 FPS)",
                 f5_desc: "Powered by ESP32-S3 / C3. Employs hardware RMT pulse generation with zero CPU stutter, delivering instantaneous color reaction and cinematic gamma correction.",
                 f6_title: "Built-in Web Portal & Wireless OTA",
-                f6_desc: "Easy browser setup at http://ambilight.local. Effortless over-the-air firmware updates and real-time LED diagnostics.",
+                f6_desc: "Easy browser setup at http://glowedge.local. Effortless over-the-air firmware updates and real-time LED diagnostics.",
                 hw_title: "Hardware Engineering & Power Flexibility",
                 hw_subtitle: "Industrial-grade fail-safe LED strip design, intelligent USB port detection, and dual-mode power engineering.",
                 hw_c1_title: "Dual Power Modes: TV USB vs Turbo Charger",
@@ -1876,7 +1988,7 @@
                 hw_c4_title: "Intelligent USB Port Detection Architecture",
                 hw_c4_desc: "How GlowEdge automatically detects your power source to protect hardware and optimize brightness.",
                 hw_c4_item1: "<strong>USB BC 1.2 Hardware Sensing:</strong> Distinguishes between Standard TV Ports (SDP, 500-900mA) and Dedicated Charging Ports (DCP, shorted D+/D- &lt;200Ω or divider resistance).",
-                hw_c4_item2: "<strong>Web Portal Power Budget Control:</strong> Select Auto-Detect, TV USB (900mA Max), or Wall Charger (3A Max) in the browser portal (<code>http://ambilight.local</code>) to match your custom setup.",
+                hw_c4_item2: "<strong>Web Portal Power Budget Control:</strong> Select Auto-Detect, TV USB (900mA Max), or Wall Charger (3A Max) in the browser portal (<code>http://glowedge.local</code>) to match your custom setup.",
                 truth_title: "Transparent Facts: What GlowEdge Does & Does NOT",
                 truth_subtitle: "No marketing fluff. Clear, honest engineering expectations.",
                 truth_pos_title: "🟢 What GlowEdge Solves",
@@ -1961,8 +2073,15 @@
                 preset_matrix: "🟢 Matrix Emerald",
                 preset_action: "💥 Action-Kino Explosion",
                 vid_badge: "ECHTE HARDWARE-AUFNAHMEN",
+                vid_badge_off: "🔴 3 SEITEN — AUS (Werks-Ambilight)",
+                vid_badge_on: "⚡ 4 SEITEN — AN (GlowEdge Expander)",
                 vid_title: "GlowEdge in Aktion: Echte TV-Aufnahmen",
                 vid_subtitle: "Echte 4K-Aufnahmen eines 65″ Philips OLED TV mit synchronisierter GlowEdge-Unterkante.",
+                vid_comp_off_title: "Werksseitiges 3-Kanal Ambilight (GlowEdge AUS)",
+                vid_comp_off_desc: "Beachten Sie die dunkle Lücke und fehlende Beleuchtung unter dem unteren TV-Rahmen bei der Schneeszene.",
+                vid_comp_on_title: "GlowEdge 4. Kante Aktiviert (360° Vollimmersion)",
+                vid_comp_on_desc: "Die Unterkante synchronisiert sich in Echtzeit mit dem Bild, eliminiert den dunklen Balken und schafft nahtloses Umgebungslicht.",
+                vid_more_title: "Weitere Praxis-Demonstrationen",
                 vid1_title: "🏔️ Italienische Alpen 4K (Volle 360°-Immersion)",
                 vid1_desc: "4K-Landschaftsdemo mit fließendem Farbverlauf am unteren Rand, abgestimmt auf Berghänge und Tageslicht.",
                 vid2_title: "🌲 Naturdokumentation (Satte Grüntöne)",
@@ -1982,7 +2101,7 @@
                 f5_title: "Hardware RMT DMA (60 FPS)",
                 f5_desc: "Angetrieben von ESP32-S3. Nutzt Hardware-RMT-Signalgenerierung ohne CPU-Ruckler für absolut verzögerungsfreie Lichtübergänge.",
                 f6_title: "Integriertes Webportal & OTA",
-                f6_desc: "Bequeme Konfiguration im Browser unter http://ambilight.local mit drahtlosen Firmware-Updates.",
+                f6_desc: "Bequeme Konfiguration im Browser unter http://glowedge.local mit drahtlosen Firmware-Updates.",
                 hw_title: "Hardware-Architektur & Flexible Stromversorgung",
                 hw_subtitle: "Industrielle LED-Streifen mit Backup-Datenleitung, intelligente USB-Port-Erkennung und Dual-Power-Architektur.",
                 hw_c1_title: "Dual-Power-Modi: TV-USB vs. Turbo-Ladegerät",
@@ -2000,7 +2119,7 @@
                 hw_c4_title: "Intelligente USB-Port-Erkennung & Schutz",
                 hw_c4_desc: "Wie GlowEdge Stromquellen unterscheidet und Hardware-Sicherheit gewährleistet.",
                 hw_c4_item1: "<strong>USB BC 1.2 Hardware-Erkennung:</strong> Unterscheidet TV-Ports (SDP, 500-900mA) von dedizierten Ladegeräten (DCP mit kurzgeschlossenen D+/D- Leitungen &lt;200Ω).",
-                hw_c4_item2: "<strong>Power-Management im Webportal:</strong> Im Konfigurationsmenü (<code>http://ambilight.local</code>) lässt sich der Modus manuell oder per Auto-Detect festlegen.",
+                hw_c4_item2: "<strong>Power-Management im Webportal:</strong> Im Konfigurationsmenü (<code>http://glowedge.local</code>) lässt sich der Modus manuell oder per Auto-Detect festlegen.",
                 truth_title: "Transparente Fakten: Was GlowEdge kann und was NICHT",
                 truth_subtitle: "Klare ingenieurtechnische Fakten ohne Marketing-Floskeln.",
                 truth_pos_title: "🟢 Was GlowEdge löst",
@@ -2085,8 +2204,15 @@
                 preset_matrix: "🟢 Matrix Émeraude",
                 preset_action: "💥 Explosion Cinéma Action",
                 vid_badge: "VIDÉOS DU MATÉRIEL RÉEL",
+                vid_badge_off: "🔴 3 CÔTÉS — ÉTEINT (Ambilight d'usine)",
+                vid_badge_on: "⚡ 4 CÔTÉS — ALLUMÉ (GlowEdge Expander)",
                 vid_title: "GlowEdge en Action : Vidéos Réelles du Téléviseur",
                 vid_subtitle: "Enregistrements 4K réels d'un téléviseur Philips OLED 65″ synchronisé avec GlowEdge.",
+                vid_comp_off_title: "Ambilight 3 Côtés d'Usine (GlowEdge ÉTEINT)",
+                vid_comp_off_desc: "Remarquez le vide sombre et l'absence totale d'éclairage sous le cadre inférieur du téléviseur dans la scène de neige.",
+                vid_comp_on_title: "GlowEdge 4ème Côté Activé (Immersion 360° Totale)",
+                vid_comp_on_desc: "Le bord inférieur se synchronise en temps réel avec l'écran, éliminant la zone d'ombre et créant une lumière ambiante continue.",
+                vid_more_title: "Autres Démonstrations en Conditions Réelles",
                 vid1_title: "🏔️ Alpes Italiennes 4K (Immersion Totale à 360°)",
                 vid1_desc: "Démo 4K montrant un dégradé inférieur ultra-fluide épousant les pentes montagneuses et la lumière du ciel.",
                 vid2_title: "🌲 Documentaire Nature (Verts Profonds)",
@@ -2106,7 +2232,7 @@
                 f5_title: "Régie matérielle RMT DMA (60 FPS)",
                 f5_desc: "Propulsé par ESP32-S3. Utilise les impulsions matérielles RMT sans ralentir le processeur pour un rendu ultra-fluide.",
                 f6_title: "Portail Web & Mises à jour OTA",
-                f6_desc: "Configuration simple sur http://ambilight.local avec mises à jour sans fil.",
+                f6_desc: "Configuration simple sur http://glowedge.local avec mises à jour sans fil.",
                 hw_title: "Architecture Matérielle & Alimentation Flexible",
                 hw_subtitle: "Rubans LED industriels avec ligne de secours, détection intelligente des ports USB et double mode d'alimentation.",
                 hw_c1_title: "Modes d'alimentation : USB TV vs Chargeur Turbo",
@@ -2124,7 +2250,7 @@
                 hw_c4_title: "Détection Intelligente des Ports USB & Sécurité",
                 hw_c4_desc: "Comment GlowEdge identifie les sources d'alimentation et protège vos équipements.",
                 hw_c4_item1: "<strong>Détection Matérielle USB BC 1.2 :</strong> Différencie les ports TV standards (SDP, 500-900mA) des chargeurs muraux dédiés (DCP avec lignes D+/D- court-circuitées &lt;200Ω).",
-                hw_c4_item2: "<strong>Contrôle sur le Portail Web :</strong> Sélectionnez Auto-Detect, USB TV (max 900mA) ou Chargeur USB (max 3A) sur <code>http://ambilight.local</code>.",
+                hw_c4_item2: "<strong>Contrôle sur le Portail Web :</strong> Sélectionnez Auto-Detect, USB TV (max 900mA) ou Chargeur USB (max 3A) sur <code>http://glowedge.local</code>.",
                 truth_title: "Faits transparents : Ce que fait et ne fait PAS GlowEdge",
                 truth_subtitle: "Des attentes d'ingénierie claires et honnêtes.",
                 truth_pos_title: "🟢 Ce que résout GlowEdge",
@@ -2209,8 +2335,15 @@
                 preset_matrix: "🟢 Matrix Esmeralda",
                 preset_action: "💥 Explosión de Cine de Acción",
                 vid_badge: "VÍDEOS DEL HARDWARE REAL",
+                vid_badge_off: "🔴 3 LADOS — APAGADO (Ambilight de fábrica)",
+                vid_badge_on: "⚡ 4 LADOS — ACTIVADO (GlowEdge Expander)",
                 vid_title: "GlowEdge en Acción: Grabaciones Reales del Televisor",
                 vid_subtitle: "Grabaciones 4K reales de un televisor Philips OLED de 65″ con sincronización GlowEdge en la parte inferior.",
+                vid_comp_off_title: "Ambilight de Fábrica en 3 Lados (GlowEdge APAGADO)",
+                vid_comp_off_desc: "Observe el espacio oscuro y la falta de iluminación debajo del marco inferior del televisor en la escena de nieve.",
+                vid_comp_on_title: "GlowEdge 4º Lado Activado (Inmersión 360° Total)",
+                vid_comp_on_desc: "El borde inferior se sincroniza en tiempo real con la pantalla, eliminando la barra oscura y creando una luz ambiental continua.",
+                vid_more_title: "Más Demostraciones Reales",
                 vid1_title: "🏔️ Alpes Italianos 4K (Inmersión Completa a 360°)",
                 vid1_desc: "Demostración en 4K con gradientes suaves en la parte inferior a juego con las montañas y el cielo.",
                 vid2_title: "🌲 Documental de Naturaleza (Tonos Verdes Vivos)",
@@ -2225,12 +2358,12 @@
                 f2_desc: "Las costosas cajas HDMI limitan las funciones de juego modernas. GlowEdge no toca el cable de vídeo y funciona con las aplicaciones internas del TV y PS5 / Xbox.",
                 f3_title: "Alimentación por USB del televisor (5V 0.9A)",
                 f3_desc: "Con nuestro limitador de potencia dinámico, GlowEdge se mantiene seguro dentro del límite de 900 mA. Se enciende y apaga automáticamente con el TV.",
-                f4_title: "Motor 2D y Filtro Cromático Inteligente",
+                f4_title: "Motor 2D y Filtro Chromático Inteligente",
                 f4_desc: "¡La luz inferior no es un simple promedio! El motor calcula un gradiente 2D con filtro cromático inteligente: los tonos contrastantes del cielo superior solo modulan la luminosidad y sombras sin alterar los colores de la parte inferior.",
                 f5_title: "Control por hardware RMT DMA (60 FPS)",
                 f5_desc: "Impulsado por ESP32-S3. Generación de pulsos por hardware sin pausas en la CPU para una reacción de color instantánea.",
                 f6_title: "Portal Web integrado y OTA inalámbrico",
-                f6_desc: "Configuración sencilla en http://ambilight.local con actualizaciones de firmware por aire.",
+                f6_desc: "Configuración sencilla en http://glowedge.local con actualizaciones de firmware por aire.",
                 hw_title: "Arquitectura de Hardware y Flexibilidad de Energía",
                 hw_subtitle: "Tiras LED de grado industrial con línea de respaldo, detección inteligente de puertos USB y presupuesto de energía dual.",
                 hw_c1_title: "Modos de Energía Dual: USB TV vs Cargador Turbo",
@@ -2247,8 +2380,8 @@
                 hw_c3_item2: "<strong>Neón Flex de Silicona / COB:</strong> Convierte los puntos individuales en una barra de luz continua tipo neón (recomendado con cargador USB; cambia a modo eco 900mA en USB de TV).",
                 hw_c4_title: "Detección Inteligente de Puertos USB y Protección",
                 hw_c4_desc: "Cómo GlowEdge identifica fuentes de alimentación y garantiza la seguridad del sistema.",
-                hw_c4_item1: "<strong>Detección USB BC 1.2:</strong> Distingue entre puertos de TV estándar (SDP, 500-900mA) y cargadores rápidos dedicados (DCP con líneas D+/D- unidas &lt;200Ω).",
-                hw_c4_item2: "<strong>Control desde el Portal Web:</strong> Configura Auto-Detect, USB TV (máx 900mA) o Cargador Rápido (máx 3A) desde <code>http://ambilight.local</code>.",
+                hw_c4_item1: "<strong>Detección USB BC 1.2:</strong> Distingue entre puertos de TV estándar (SDP, 500-900mA) des cargadores rápidos dedicados (DCP con líneas D+/D- unidas &lt;200Ω).",
+                hw_c4_item2: "<strong>Control desde el Portal Web:</strong> Configura Auto-Detect, USB TV (máx 900mA) o Cargador Rápido (máx 3A) desde <code>http://glowedge.local</code>.",
                 truth_title: "Datos transparentes: Qué hace y qué NO hace GlowEdge",
                 truth_subtitle: "Expectativas de ingeniería honestas y claras.",
                 truth_pos_title: "🟢 Lo que resuelve GlowEdge",
@@ -2333,8 +2466,15 @@
                 preset_matrix: "🟢 Matrix Emerald",
                 preset_action: "💥 Eksplozja Kina Akcji",
                 vid_badge: "PRAWDZIWE NAGRANIA Z TELEWIZORA",
+                vid_badge_off: "🔴 3 STRONY — WYŁĄCZONY (Fabryczny)",
+                vid_badge_on: "⚡ 4 STRONY — WŁĄCZONY (GlowEdge)",
                 vid_title: "GlowEdge w Akcji: Prawdziwe Wideo z TV",
                 vid_subtitle: "Autentyczne nagrania w 4K z 65-calowego telewizora Philips OLED z bezprzewodową synchronizacją dolnej krawędzi GlowEdge.",
+                vid_comp_off_title: "Fabryczny 3-stronny Ambilight (GlowEdge WYŁĄCZONY)",
+                vid_comp_off_desc: "Zwróć uwagę na ciemną pustkę i brak jakiegokolwiek podświetlenia pod dolną ramką telewizora w scenie śnieżnej.",
+                vid_comp_on_title: "GlowEdge 4. krawędź aktywna (Pełna immersja 360°)",
+                vid_comp_on_desc: "Dolna krawędź dynamicznie synchronizuje się z obrazem w czasie rzeczywistym, eliminując czarną przerwę i tworząc spójne podświetlenie.",
+                vid_more_title: "Więcej demonstracji w rzeczywistych warunkach",
                 vid1_title: "🏔️ Włoskie Alpy 4K (Pełna Immersja 360°)",
                 vid1_desc: "Płynny gradient dolnego paska doskonale stapia się z bielą stoków i błękitem alpejskiego nieba.",
                 vid2_title: "🌲 Film Przyrodniczy (Głęboka Zieleń Lasu)",
@@ -2354,7 +2494,7 @@
                 f5_title: "Sprzętowy RMT DMA (60 FPS)",
                 f5_desc: "Zbudowany na ESP32-S3 / C3. Wykorzystuje sprzętowy kontroler impulsów RMT bez obciążania procesora dla natychmiastowej reakcji barw.",
                 f6_title: "Wbudowany Portal Web & OTA",
-                f6_desc: "Wygodna konfiguracja przez przeglądarkę pod adresem http://ambilight.local z bezprzewodową aktualizacją softu.",
+                f6_desc: "Wygodna konfiguracja przez przeglądarkę pod adresem http://glowedge.local z bezprzewodową aktualizacją softu.",
                 hw_title: "Inżynieria Sprzętowa i Elastyczność Zasilania",
                 hw_subtitle: "Przemysłowa niezawodność pasków LED z linią zapasową, inteligentna detekcja portów USB i dwutrybowy budżet mocy.",
                 hw_c1_title: "Dwa Tryby Zasilania: TV USB vs Szybka Ładowarka",
@@ -2372,7 +2512,7 @@
                 hw_c4_title: "Jak Działa Detekcja Portów USB i Ochrona",
                 hw_c4_desc: "Wyjaśnienie techniczne: jak urządzenie rozpoznaje źródło zasilania i chroni Twój telewizor.",
                 hw_c4_item1: "<strong>Standard USB BC 1.2 i linie danych:</strong> Port TV zgłasza się jako SDP (linie D+/D- otwarte/wysoka impedancja, limit 900mA). Dedykowana ładowarka sieciowa (DCP) posiada zwarte linie D+ i D- (&lt;200Ω) lub dedykowane dzielniki rezystorowe.",
-                hw_c4_item2: "<strong>Zarządzanie budżetem w Panelu Web:</strong> W panelu konfiguracyjnym (<code>http://ambilight.local</code>) możesz ustawić Auto-detekcję lub ręcznie wybrać tryb: TV USB (limit 900mA) albo Ładowarka USB (limit 3A).",
+                hw_c4_item2: "<strong>Zarządzanie budżetem w Panelu Web:</strong> W panelu konfiguracyjnym (<code>http://glowedge.local</code>) możesz ustawić Auto-detekcję lub ręcznie wybrać tryb: TV USB (limit 900mA) albo Ładowarka USB (limit 3A).",
                 truth_title: "Rzetelne fakty: Co GlowEdge robi, a czego NIE",
                 truth_subtitle: "Bez marketingowych złudzeń. Zobacz dokładnie, jak moduł zachowuje się w codziennym użytkowaniu.",
                 truth_pos_title: "🟢 Co GlowEdge rozwiązuje",
