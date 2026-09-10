@@ -484,59 +484,128 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
 
+        .sim-toggle-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 16px auto 0;
+            padding: 8px 18px;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            width: fit-content;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #334155;
+            transition: 0.3s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: linear-gradient(135deg, var(--accent-glow), var(--accent-purple));
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+        }
+
+        .toggle-switch input:checked + .toggle-slider:before {
+            transform: translateX(20px);
+        }
+
+        .toggle-status-badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--accent-glow);
+            transition: color 0.3s;
+        }
+
         .tv-wrapper {
             position: relative;
-            max-width: 800px;
-            margin: 30px auto 24px;
-            padding: 40px 20px 60px;
+            max-width: 780px;
+            margin: 24px auto 20px;
+            padding: 40px 30px;
         }
 
         .amb-glow-top {
             position: absolute;
-            top: 15px;
-            left: 5%;
-            width: 90%;
-            height: 55px;
-            filter: blur(40px);
-            opacity: 0.85;
+            top: 10px;
+            left: 6%;
+            width: 88%;
+            height: 65px;
+            filter: blur(42px);
+            opacity: 0.88;
             transition: all 0.6s ease;
             pointer-events: none;
+            z-index: 1;
         }
 
         .amb-glow-left {
             position: absolute;
-            top: 40px;
-            left: 0;
-            width: 50px;
-            height: 70%;
-            filter: blur(40px);
-            opacity: 0.85;
+            top: 10%;
+            left: -5px;
+            width: 65px;
+            height: 80%;
+            filter: blur(42px);
+            opacity: 0.88;
             transition: all 0.6s ease;
             pointer-events: none;
+            z-index: 1;
         }
 
         .amb-glow-right {
             position: absolute;
-            top: 40px;
-            right: 0;
-            width: 50px;
-            height: 70%;
-            filter: blur(40px);
-            opacity: 0.85;
+            top: 10%;
+            right: -5px;
+            width: 65px;
+            height: 80%;
+            filter: blur(42px);
+            opacity: 0.88;
             transition: all 0.6s ease;
             pointer-events: none;
+            z-index: 1;
         }
 
         .amb-glow-bottom {
             position: absolute;
-            bottom: 25px;
-            left: 8%;
-            width: 84%;
-            height: 60px;
-            filter: blur(40px);
+            bottom: 10px;
+            left: 6%;
+            width: 88%;
+            height: 65px;
+            filter: blur(42px);
             opacity: 0;
             transition: all 0.6s ease;
             pointer-events: none;
+            z-index: 1;
         }
 
         .amb-glow-bottom.active {
@@ -546,7 +615,7 @@
         .tv-frame {
             position: relative;
             background: #020617;
-            border: 4px solid #334155;
+            border: 4px solid #1e293b;
             border-radius: 8px;
             aspect-ratio: 16 / 9;
             width: 100%;
@@ -554,7 +623,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.85);
             z-index: 2;
         }
 
@@ -585,23 +654,61 @@
             border-radius: 6px;
         }
 
-        .tv-bottom-bar-hardware {
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 75%;
-            height: 6px;
-            background: #0f172a;
-            border-radius: 3px;
-            border: 1px solid #475569;
-            z-index: 3;
-            transition: all 0.3s;
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
         }
 
-        .tv-bottom-bar-hardware.active {
-            box-shadow: 0 0 15px var(--accent-glow);
-            border-color: var(--accent-glow);
+        .video-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        .demo-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-info {
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .video-info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .video-info p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
         .preset-bar {
@@ -1146,6 +1253,7 @@
                 <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
                 <li><a href="#glowedge" data-i18n="nav_glowedge">⚡ GlowEdge</a></li>
                 <li><a href="#simulator" data-i18n="nav_sim">Simulator</a></li>
+                <li><a href="#live-demo" data-i18n="nav_video">Live Footage</a></li>
                 <li><a href="#hardware-power" data-i18n="nav_hw">Hardware</a></li>
                 <li><a href="#roadmap" data-i18n="nav_eco">Ecosystem</a></li>
                 <li><a href="#about" class="nav-cta" data-i18n="nav_about">About Maker</a></li>
@@ -1281,6 +1389,15 @@
                     </div>
                 </div>
 
+                <div class="sim-toggle-wrapper">
+                    <span style="font-size: 0.88rem; font-weight: 600; color: #fff;" data-i18n="sim_toggle_label">⚡ GlowEdge (4th Bottom Edge):</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="glowedgeSwitch" checked onchange="toggleGlowEdge(this.checked)">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="toggle-status-badge" id="toggleStatusText" data-i18n="sim_toggle_on">ENABLED (4 SIDES)</span>
+                </div>
+
                 <div class="tv-wrapper">
                     <div class="amb-glow-top" id="glowTop"></div>
                     <div class="amb-glow-left" id="glowLeft"></div>
@@ -1293,8 +1410,6 @@
                             <p id="sceneSubtitle">Dynamic transitions: Cyan (left) ↔ Pink/Purple (right)</p>
                         </div>
                     </div>
-
-                    <div class="tv-bottom-bar-hardware active" id="hwBar"></div>
                 </div>
 
                 <div class="preset-bar">
@@ -1303,6 +1418,58 @@
                     <button class="preset-chip" onclick="setPreset('ocean')" data-i18n="preset_ocean">🌊 Arctic Ocean</button>
                     <button class="preset-chip" onclick="setPreset('matrix')" data-i18n="preset_matrix">🟢 Matrix Emerald</button>
                     <button class="preset-chip" onclick="setPreset('action')" data-i18n="preset_action">💥 Cinema Action Blast</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="live-demo" class="section">
+            <div class="section-header">
+                <div class="hero-pill" style="margin-bottom: 12px;">
+                    <span class="dot" style="background: #10b981;"></span>
+                    <span data-i18n="vid_badge">REAL HARDWARE FOOTAGE</span>
+                </div>
+                <h2 data-i18n="vid_title">GlowEdge in Action: Real TV Footage</h2>
+                <p data-i18n="vid_subtitle">Real 4K recordings of a 65″ Philips OLED TV running GlowEdge wireless bottom edge synchronization.</p>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls playsinline preload="metadata" poster="./videos/poster_alps.jpg" class="demo-video">
+                            <source src="./videos/glowedge_demo_alps.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 data-i18n="vid1_title">🏔️ Italian Alps 4K (Full 360° Immersion)</h3>
+                        <p data-i18n="vid1_desc">Live 4K landscape demo showing ultra-smooth bottom gradient matching mountain slopes and daylight sky.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls playsinline preload="metadata" poster="./videos/poster_forest.jpg" class="demo-video">
+                            <source src="./videos/glowedge_demo_forest.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 data-i18n="vid2_title">🌲 Nature Documentary (Lush Greens)</h3>
+                        <p data-i18n="vid2_desc">Deep forest greenery and streaming water reflections cast naturally below the TV bezel.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls playsinline preload="metadata" poster="./videos/poster_action.jpg" class="demo-video">
+                            <source src="./videos/glowedge_demo_action.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 data-i18n="vid3_title">💥 Cinematic Action (Zero Lag & Flash Sync)</h3>
+                        <p data-i18n="vid3_desc">High-speed explosions and combat lighting rendered instantaneously with RMT DMA hardware timing.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1626,6 +1793,7 @@
                 nav_projects: "Projects",
                 nav_glowedge: "⚡ GlowEdge",
                 nav_sim: "Simulator",
+                nav_video: "Live Footage",
                 nav_hw: "Hardware",
                 nav_eco: "Ecosystem",
                 nav_about: "About Maker",
@@ -1660,11 +1828,23 @@
                 sim_header_subtitle: "Toggle modes and presets to experience the difference in immersion",
                 btn_3sides: "3 Sides Only (Factory)",
                 btn_4sides: "⚡ 4 Sides with GlowEdge",
+                sim_toggle_label: "⚡ GlowEdge (4th Bottom Edge):",
+                sim_toggle_on: "ENABLED (4 SIDES)",
+                sim_toggle_off: "DISABLED (3 SIDES)",
                 preset_cyberpunk: "🌆 Cyberpunk Neon",
                 preset_sunset: "🌅 Warm Sunset",
                 preset_ocean: "🌊 Arctic Ocean",
                 preset_matrix: "🟢 Matrix Emerald",
                 preset_action: "💥 Cinema Action Blast",
+                vid_badge: "REAL HARDWARE FOOTAGE",
+                vid_title: "GlowEdge in Action: Real TV Footage",
+                vid_subtitle: "Real 4K recordings of a 65″ Philips OLED TV running GlowEdge wireless bottom edge synchronization.",
+                vid1_title: "🏔️ Italian Alps 4K (Full 360° Immersion)",
+                vid1_desc: "Live 4K landscape demo showing ultra-smooth bottom gradient matching mountain slopes and daylight sky.",
+                vid2_title: "🌲 Nature Documentary (Lush Greens)",
+                vid2_desc: "Deep forest greenery and streaming water reflections cast naturally below the TV bezel.",
+                vid3_title: "💥 Cinematic Action (Zero Lag & Flash Sync)",
+                vid3_desc: "High-speed explosions and combat lighting rendered instantaneously with RMT DMA hardware timing.",
                 feat_title: "Why GlowEdge is Different",
                 feat_subtitle: "Engineered from day one as clean, non-invasive technology for home theater enthusiasts.",
                 f1_title: "Zero Ugly Screen Cameras",
@@ -1737,6 +1917,7 @@
                 nav_projects: "Projekte",
                 nav_glowedge: "⚡ GlowEdge",
                 nav_sim: "Simulator",
+                nav_video: "Live-Aufnahmen",
                 nav_hw: "Hardware",
                 nav_eco: "Ökosystem",
                 nav_about: "Über mich",
@@ -1771,11 +1952,23 @@
                 sim_header_subtitle: "Modi und Presets umschalten, um den Unterschied zu erleben",
                 btn_3sides: "Nur 3 Seiten (Werk)",
                 btn_4sides: "⚡ 4 Seiten mit GlowEdge",
+                sim_toggle_label: "⚡ GlowEdge (4. untere Kante):",
+                sim_toggle_on: "AKTIVIERT (4 SEITEN)",
+                sim_toggle_off: "DEAKTIVIERT (3 SEITEN)",
                 preset_cyberpunk: "🌆 Cyberpunk Neon",
                 preset_sunset: "🌅 Warmer Sonnenuntergang",
                 preset_ocean: "🌊 Arktischer Ozean",
                 preset_matrix: "🟢 Matrix Emerald",
                 preset_action: "💥 Action-Kino Explosion",
+                vid_badge: "ECHTE HARDWARE-AUFNAHMEN",
+                vid_title: "GlowEdge in Aktion: Echte TV-Aufnahmen",
+                vid_subtitle: "Echte 4K-Aufnahmen eines 65″ Philips OLED TV mit synchronisierter GlowEdge-Unterkante.",
+                vid1_title: "🏔️ Italienische Alpen 4K (Volle 360°-Immersion)",
+                vid1_desc: "4K-Landschaftsdemo mit fließendem Farbverlauf am unteren Rand, abgestimmt auf Berghänge und Tageslicht.",
+                vid2_title: "🌲 Naturdokumentation (Satte Grüntöne)",
+                vid2_desc: "Tiefe Waldtöne und Wasserreflexionen werden natürlich unter den TV-Rahmen projiziert.",
+                vid3_title: "💥 Kino-Action (Verzögerungsfreie Synchronisation)",
+                vid3_desc: "Schnelle Explosionen und Lichteffekte werden per RMT-DMA-Hardware-Timing ohne Latenz wiedergegeben.",
                 feat_title: "Warum GlowEdge einzigartig ist",
                 feat_subtitle: "Von Grund auf als saubere, nicht-invasive Technologie für Heimkino-Liebhaber entwickelt.",
                 f1_title: "Keine störende Kamera am TV",
@@ -1848,6 +2041,7 @@
                 nav_projects: "Projets",
                 nav_glowedge: "⚡ GlowEdge",
                 nav_sim: "Simulateur",
+                nav_video: "Vidéos Réelles",
                 nav_hw: "Matériel",
                 nav_eco: "Écosystème",
                 nav_about: "À propos",
@@ -1882,11 +2076,23 @@
                 sim_header_subtitle: "Basculez les modes et présélections pour apprécier la différence",
                 btn_3sides: "3 côtés seuls (Usine)",
                 btn_4sides: "⚡ 4 côtés avec GlowEdge",
+                sim_toggle_label: "⚡ GlowEdge (4ème Côté Inférieur) :",
+                sim_toggle_on: "ACTIVÉ (4 CÔTÉS)",
+                sim_toggle_off: "DÉSACTIVÉ (3 CÔTÉS)",
                 preset_cyberpunk: "🌆 Cyberpunk Néon",
                 preset_sunset: "🌅 Coucher de soleil",
                 preset_ocean: "🌊 Océan Arctique",
                 preset_matrix: "🟢 Matrix Émeraude",
                 preset_action: "💥 Explosion Cinéma Action",
+                vid_badge: "VIDÉOS DU MATÉRIEL RÉEL",
+                vid_title: "GlowEdge en Action : Vidéos Réelles du Téléviseur",
+                vid_subtitle: "Enregistrements 4K réels d'un téléviseur Philips OLED 65″ synchronisé avec GlowEdge.",
+                vid1_title: "🏔️ Alpes Italiennes 4K (Immersion Totale à 360°)",
+                vid1_desc: "Démo 4K montrant un dégradé inférieur ultra-fluide épousant les pentes montagneuses et la lumière du ciel.",
+                vid2_title: "🌲 Documentaire Nature (Verts Profonds)",
+                vid2_desc: "La verdure de la forêt et les reflets de l'eau sont projetés naturellement sous le cadre de l'écran.",
+                vid3_title: "💥 Scènes d'Action (Zéro Latence & Flash Sync)",
+                vid3_desc: "Explosions et effets d'action reproduits instantanément grâce à la cadence matérielle RMT DMA.",
                 feat_title: "Pourquoi GlowEdge est unique",
                 feat_subtitle: "Conçu dès le premier jour comme une technologie propre et non invasive pour cinéphiles.",
                 f1_title: "Aucune caméra disgracieuse",
@@ -1959,6 +2165,7 @@
                 nav_projects: "Proyectos",
                 nav_glowedge: "⚡ GlowEdge",
                 nav_sim: "Simulador",
+                nav_video: "Vídeos Reales",
                 nav_hw: "Hardware",
                 nav_eco: "Ecosistema",
                 nav_about: "Sobre mí",
@@ -1993,11 +2200,23 @@
                 sim_header_subtitle: "Cambia modos y ajustes para experimentar la diferencia",
                 btn_3sides: "Solo 3 lados (Fábrica)",
                 btn_4sides: "⚡ 4 lados con GlowEdge",
+                sim_toggle_label: "⚡ GlowEdge (4º Lado Inferior):",
+                sim_toggle_on: "ACTIVADO (4 LADOS)",
+                sim_toggle_off: "DESACTIVADO (3 LADOS)",
                 preset_cyberpunk: "🌆 Cyberpunk Neón",
                 preset_sunset: "🌅 Atardecer Cálido",
                 preset_ocean: "🌊 Océano Ártico",
                 preset_matrix: "🟢 Matrix Esmeralda",
                 preset_action: "💥 Explosión de Cine de Acción",
+                vid_badge: "VÍDEOS DEL HARDWARE REAL",
+                vid_title: "GlowEdge en Acción: Grabaciones Reales del Televisor",
+                vid_subtitle: "Grabaciones 4K reales de un televisor Philips OLED de 65″ con sincronización GlowEdge en la parte inferior.",
+                vid1_title: "🏔️ Alpes Italianos 4K (Inmersión Completa a 360°)",
+                vid1_desc: "Demostración en 4K con gradientes suaves en la parte inferior a juego con las montañas y el cielo.",
+                vid2_title: "🌲 Documental de Naturaleza (Tonos Verdes Vivos)",
+                vid2_desc: "La vegetación profunda del bosque y los reflejos del agua se proyectan con total naturalidad bajo el marco.",
+                vid3_title: "💥 Acción Cinematográfica (Sin Retardo y Sincronización Inmediata)",
+                vid3_desc: "Explosiones a alta velocidad y efectos de luz reproducidos al instante mediante temporización de hardware RMT DMA.",
                 feat_title: "Por qué GlowEdge es diferente",
                 feat_subtitle: "Diseñado desde el primer día como tecnología limpia y no invasiva para cinéfilos.",
                 f1_title: "Sin cámaras antiestéticas",
@@ -2070,6 +2289,7 @@
                 nav_projects: "Projekty",
                 nav_glowedge: "⚡ GlowEdge",
                 nav_sim: "Symulator",
+                nav_video: "Wideo z TV",
                 nav_hw: "Sprzęt",
                 nav_eco: "Ekosystem",
                 nav_about: "O mnie",
@@ -2104,11 +2324,23 @@
                 sim_header_subtitle: "Przełączaj tryb i scenerię, aby zobaczyć różnicę w immersji",
                 btn_3sides: "Tylko 3 strony (Fabrycznie)",
                 btn_4sides: "⚡ 4 strony z GlowEdge",
+                sim_toggle_label: "⚡ GlowEdge (4. dolna krawędź):",
+                sim_toggle_on: "WŁĄCZONE (4 STRONY)",
+                sim_toggle_off: "WYŁĄCZONE (3 STRONY)",
                 preset_cyberpunk: "🌆 Cyberpunk Neon",
                 preset_sunset: "🌅 Ciepły Zachód Słońca",
                 preset_ocean: "🌊 Arktyczny Ocean",
                 preset_matrix: "🟢 Matrix Emerald",
                 preset_action: "💥 Eksplozja Kina Akcji",
+                vid_badge: "PRAWDZIWE NAGRANIA Z TELEWIZORA",
+                vid_title: "GlowEdge w Akcji: Prawdziwe Wideo z TV",
+                vid_subtitle: "Autentyczne nagrania w 4K z 65-calowego telewizora Philips OLED z bezprzewodową synchronizacją dolnej krawędzi GlowEdge.",
+                vid1_title: "🏔️ Włoskie Alpy 4K (Pełna Immersja 360°)",
+                vid1_desc: "Płynny gradient dolnego paska doskonale stapia się z bielą stoków i błękitem alpejskiego nieba.",
+                vid2_title: "🌲 Film Przyrodniczy (Głęboka Zieleń Lasu)",
+                vid2_desc: "Soczysta zieleń lasu i refleksy wody rzucane naturalnie na ścianę poniżej ramki telewizora.",
+                vid3_title: "💥 Kino Akcji (Brak Opóźnień i Błyskawiczny Błysk)",
+                vid3_desc: "Dynamiczne sceny wybuchów i walki renderowane natychmiastowo dzięki sprzętowemu układowi RMT DMA.",
                 feat_title: "Czym GlowEdge różni się od innych rozwiązań?",
                 feat_subtitle: "Projekt od początku powstawał jako czysta, bezinwazyjna inżynieria dla entuzjastów kina domowego.",
                 f1_title: "Brak szpecącej kamerki",
@@ -2202,6 +2434,12 @@
                 }
             });
 
+            const toggleText = document.getElementById('toggleStatusText');
+            if (toggleText) {
+                toggleText.innerText = (sidesMode === 4) ? (dict.sim_toggle_on || "ENABLED (4 SIDES)") : (dict.sim_toggle_off || "DISABLED (3 SIDES)");
+                toggleText.style.color = (sidesMode === 4) ? "var(--accent-glow)" : "#94a3b8";
+            }
+
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.innerText.toLowerCase().includes(lang));
             });
@@ -2262,21 +2500,30 @@
 
         function applyPreset() {
             const p = presets[currentPreset];
-            document.getElementById('sceneTitle').innerText = p.title;
-            document.getElementById('sceneSubtitle').innerText = p.subtitle;
-            document.getElementById('tvScreen').style.background = p.bg;
+            const titleEl = document.getElementById('sceneTitle');
+            const subEl = document.getElementById('sceneSubtitle');
+            const screenEl = document.getElementById('tvScreen');
+            const topEl = document.getElementById('glowTop');
+            const leftEl = document.getElementById('glowLeft');
+            const rightEl = document.getElementById('glowRight');
+            const bottomEl = document.getElementById('glowBottom');
 
-            document.getElementById('glowTop').style.background = p.top;
-            document.getElementById('glowLeft').style.background = p.left;
-            document.getElementById('glowRight').style.background = p.right;
-            document.getElementById('glowBottom').style.background = p.bottom;
+            if (titleEl) titleEl.innerText = p.title;
+            if (subEl) subEl.innerText = p.subtitle;
+            if (screenEl) screenEl.style.background = p.bg;
+            if (topEl) topEl.style.background = p.top;
+            if (leftEl) leftEl.style.background = p.left;
+            if (rightEl) rightEl.style.background = p.right;
+            if (bottomEl) bottomEl.style.background = p.bottom;
         }
 
         function setPreset(key) {
             currentPreset = key;
             applyPreset();
             document.querySelectorAll('.preset-chip').forEach(el => el.classList.remove('active'));
-            if (event && event.target) event.target.classList.add('active');
+            if (typeof event !== 'undefined' && event && event.target && event.target.classList) {
+                event.target.classList.add('active');
+            }
         }
 
         function setSides(count) {
@@ -2284,19 +2531,33 @@
             const btn3 = document.getElementById('btn3Sides');
             const btn4 = document.getElementById('btn4Sides');
             const glowBottom = document.getElementById('glowBottom');
-            const hwBar = document.getElementById('hwBar');
+            const toggleSwitch = document.getElementById('glowedgeSwitch');
+            const toggleText = document.getElementById('toggleStatusText');
+            const dict = translations[currentLang] || translations.en;
 
             if (count === 3) {
-                btn3.classList.add('active');
-                btn4.classList.remove('active');
-                glowBottom.classList.remove('active');
-                hwBar.classList.remove('active');
+                if (btn3) btn3.classList.add('active');
+                if (btn4) btn4.classList.remove('active');
+                if (glowBottom) glowBottom.classList.remove('active');
+                if (toggleSwitch) toggleSwitch.checked = false;
+                if (toggleText) {
+                    toggleText.innerText = dict.sim_toggle_off || "DISABLED (3 SIDES)";
+                    toggleText.style.color = "#94a3b8";
+                }
             } else {
-                btn4.classList.add('active');
-                btn3.classList.remove('active');
-                glowBottom.classList.add('active');
-                hwBar.classList.add('active');
+                if (btn4) btn4.classList.add('active');
+                if (btn3) btn3.classList.remove('active');
+                if (glowBottom) glowBottom.classList.add('active');
+                if (toggleSwitch) toggleSwitch.checked = true;
+                if (toggleText) {
+                    toggleText.innerText = dict.sim_toggle_on || "ENABLED (4 SIDES)";
+                    toggleText.style.color = "var(--accent-glow)";
+                }
             }
+        }
+
+        function toggleGlowEdge(isOn) {
+            setSides(isOn ? 4 : 3);
         }
 
         const initialLang = detectUserLanguage();
